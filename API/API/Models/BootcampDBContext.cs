@@ -10,9 +10,6 @@ namespace API.Models
 {
     public partial class BootcampDBContext : DbContext
     {
-        public BootcampDBContext()
-        {
-        }
 
         public BootcampDBContext(DbContextOptions<BootcampDBContext> options)
             : base(options)
@@ -37,15 +34,6 @@ namespace API.Models
         public virtual DbSet<UserInfo> UserInfo { get; set; }
         public virtual DbSet<VNivOrg> VNivOrg { get; set; }
         public virtual DbSet<VTrabajadores> VTrabajadores { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=192.168.1.53;Database=BootcampDB;User ID=user123;Password=123");
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
