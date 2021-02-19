@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Joan\\Source\\Repos\\JoanJuan10\\.NET_PROJECT\\API\\API\\API.csproj": {}
+    "C:\\Users\\Joan\\source\\repos\\JoanJuan10\\.NET_PROJECT\\API\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Joan\\Source\\Repos\\JoanJuan10\\.NET_PROJECT\\API\\API\\API.csproj": {
+    "C:\\Users\\Joan\\source\\repos\\JoanJuan10\\.NET_PROJECT\\API\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joan\\Source\\Repos\\JoanJuan10\\.NET_PROJECT\\API\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Joan\\source\\repos\\JoanJuan10\\.NET_PROJECT\\API\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Joan\\Source\\Repos\\JoanJuan10\\.NET_PROJECT\\API\\API\\API.csproj",
+        "projectPath": "C:\\Users\\Joan\\source\\repos\\JoanJuan10\\.NET_PROJECT\\API\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Joan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joan\\Source\\Repos\\JoanJuan10\\.NET_PROJECT\\API\\API\\obj\\",
+        "outputPath": "C:\\Users\\Joan\\source\\repos\\JoanJuan10\\.NET_PROJECT\\API\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Joan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

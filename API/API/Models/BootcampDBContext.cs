@@ -1197,7 +1197,7 @@ namespace API.Models
 
             modelBuilder.Entity<VNivOrg>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.Id });
 
                 entity.ToView("V_NIV_ORG");
 
@@ -1247,7 +1247,7 @@ namespace API.Models
 
             modelBuilder.Entity<VTrabajadores>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.Id });
 
                 entity.ToView("V_TRABAJADORES");
 
