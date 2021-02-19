@@ -34,6 +34,7 @@ namespace API
             //Configuramos la conexión con la base de datos SQL
             var connection = Configuration.GetConnectionString("APIDatabase");
             services.AddDbContextPool<BootcampDBContext>(options => options.UseSqlServer(connection));
+            services.AddCors();
             services.AddControllers();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -60,6 +61,15 @@ namespace API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //Configura CORS restrictions
+            app.UseCors(options =>
+                {
+                    //options.WithOrigins("*");
+                    options.AllowAnyOrigin();
+                    options.AllowAnyMethod();
+                    options.AllowAnyHeader();
+                }
+            );
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
