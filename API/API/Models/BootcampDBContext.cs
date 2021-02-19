@@ -10,6 +10,10 @@ namespace API.Models
 {
     public partial class BootcampDBContext : DbContext
     {
+        public BootcampDBContext()
+        {
+        }
+
         public BootcampDBContext(DbContextOptions<BootcampDBContext> options)
             : base(options)
         {
@@ -30,8 +34,18 @@ namespace API.Models
         public virtual DbSet<Subescala> Subescala { get; set; }
         public virtual DbSet<TProvis> TProvis { get; set; }
         public virtual DbSet<Trabajadores> Trabajadores { get; set; }
+        public virtual DbSet<UserInfo> UserInfo { get; set; }
         public virtual DbSet<VNivOrg> VNivOrg { get; set; }
         public virtual DbSet<VTrabajadores> VTrabajadores { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=192.168.1.53;Database=BootcampDB;User ID=user123;Password=123");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -1195,9 +1209,44 @@ namespace API.Models
                     .HasConstraintName("FK_TRABAJADORES_POBLAC_NAC");
             });
 
+            modelBuilder.Entity<UserInfo>(entity =>
+            {
+                entity.HasKey(e => e.UserId)
+                    .HasName("PK__UserInfo__1788CC4C0EBAC991");
+
+                entity.Property(e => e.CreatedDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserName)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<VNivOrg>(entity =>
             {
-                entity.HasKey(e => new { e.Id });
+                entity.HasKey(e => e.Id);
 
                 entity.ToView("V_NIV_ORG");
 
@@ -1247,7 +1296,7 @@ namespace API.Models
 
             modelBuilder.Entity<VTrabajadores>(entity =>
             {
-                entity.HasKey(e => new { e.Id });
+                entity.HasKey(e => e.Id);
 
                 entity.ToView("V_TRABAJADORES");
 
