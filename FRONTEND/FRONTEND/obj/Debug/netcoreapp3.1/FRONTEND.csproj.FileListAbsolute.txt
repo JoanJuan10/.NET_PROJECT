@@ -403,3 +403,4 @@ C:\Users\viiksen\Documents\curso NET\GitKraken\ProyectoFinal\Proyecto\FRONTEND\F
 C:\Users\viiksen\Documents\curso NET\GitKraken\ProyectoFinal\Proyecto\FRONTEND\FRONTEND\obj\Debug\netcoreapp3.1\FRONTEND.pdb
 C:\Users\viiksen\Documents\curso NET\GitKraken\ProyectoFinal\Proyecto\FRONTEND\FRONTEND\obj\Debug\netcoreapp3.1\FRONTEND.genruntimeconfig.cache
 C:\Users\viiksen\Documents\curso NET\GitKraken\ProyectoFinal\Proyecto\FRONTEND\FRONTEND\obj\Debug\netcoreapp3.1\Razor\Views\Paginas\Error404.cshtml.g.cs
+C:\Users\Joan\source\repos\JoanJuan10\.NET_PROJECT\FRONTEND\FRONTEND\obj\Debug\netcoreapp3.1\Razor\Views\Paginas\Error404.cshtml.g.cs
