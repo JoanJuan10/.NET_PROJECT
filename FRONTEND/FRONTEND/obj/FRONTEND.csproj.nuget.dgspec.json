@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Joan\\source\\repos\\JoanJuan10\\.NET_PROJECT\\FRONTEND\\FRONTEND\\FRONTEND.csproj": {}
+    "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\FRONTEND.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Joan\\source\\repos\\JoanJuan10\\.NET_PROJECT\\FRONTEND\\FRONTEND\\FRONTEND.csproj": {
+    "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\FRONTEND.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joan\\source\\repos\\JoanJuan10\\.NET_PROJECT\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
+        "projectUniqueName": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
         "projectName": "FRONTEND",
-        "projectPath": "C:\\Users\\Joan\\source\\repos\\JoanJuan10\\.NET_PROJECT\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
-        "packagesPath": "C:\\Users\\Joan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joan\\source\\repos\\JoanJuan10\\.NET_PROJECT\\FRONTEND\\FRONTEND\\obj\\",
+        "projectPath": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
+        "packagesPath": "C:\\Users\\viiksen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Joan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\viiksen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
