@@ -158,3 +158,4 @@ C:\Users\Joan\Source\Repos\JoanJuan10\.NET_PROJECT\API\API\obj\Debug\netcoreapp3
 C:\Users\Joan\Source\Repos\JoanJuan10\.NET_PROJECT\API\API\obj\Debug\netcoreapp3.1\API.dll
 C:\Users\Joan\Source\Repos\JoanJuan10\.NET_PROJECT\API\API\obj\Debug\netcoreapp3.1\API.pdb
 C:\Users\Joan\Source\Repos\JoanJuan10\.NET_PROJECT\API\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
+C:\Users\Joan\source\repos\JoanJuan10\.NET_PROJECT\API\API\bin\Debug\netcoreapp3.1\AutoMapper.dll
