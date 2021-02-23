@@ -40,6 +40,11 @@ namespace API
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
 
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
             //Configuración de JWT
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
