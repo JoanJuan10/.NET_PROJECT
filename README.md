@@ -7,7 +7,15 @@ API REST creada con .NET Core 3.1 utilizando varias entidades ER y conectada con
 MS Sql Virtualizada sobre Fedora 32.
 ```
 
-#### 2. Lista con los pasos mínimos que se necesitan para clonar exitosamente el proyecto
+#### 2. Componentes del Equipo
+```
+Joan Baza - Back end Developer
+Iago Gonzalez - Back end Developer
+Adrian Pobo - Front end Developer
+Viksen Senkov - Front end Developer
+```
+
+#### 3. Lista con los pasos mínimos que se necesitan para clonar exitosamente el proyecto
 
 ###### Install
 ```
