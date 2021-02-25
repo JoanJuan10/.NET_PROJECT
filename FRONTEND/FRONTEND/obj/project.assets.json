@@ -9142,11 +9142,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
+      "projectUniqueName": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\.NET_PROJECT\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
       "projectName": "FRONTEND",
-      "projectPath": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
+      "projectPath": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\.NET_PROJECT\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
       "packagesPath": "C:\\Users\\viiksen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\obj\\",
+      "outputPath": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\.NET_PROJECT\\FRONTEND\\FRONTEND\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
