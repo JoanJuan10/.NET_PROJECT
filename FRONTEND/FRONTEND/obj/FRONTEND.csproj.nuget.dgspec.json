@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\FRONTEND.csproj": {}
+    "C:\\Users\\Iago\\source\\repos\\igc88\\.NET_PROJECT\\FRONTEND\\FRONTEND\\FRONTEND.csproj": {}
   },
   "projects": {
-    "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\FRONTEND.csproj": {
+    "C:\\Users\\Iago\\source\\repos\\igc88\\.NET_PROJECT\\FRONTEND\\FRONTEND\\FRONTEND.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
+        "projectUniqueName": "C:\\Users\\Iago\\source\\repos\\igc88\\.NET_PROJECT\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
         "projectName": "FRONTEND",
-        "projectPath": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
-        "packagesPath": "C:\\Users\\viiksen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\obj\\",
+        "projectPath": "C:\\Users\\Iago\\source\\repos\\igc88\\.NET_PROJECT\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
+        "packagesPath": "C:\\Users\\Iago\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Iago\\source\\repos\\igc88\\.NET_PROJECT\\FRONTEND\\FRONTEND\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\viiksen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Iago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -93,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
