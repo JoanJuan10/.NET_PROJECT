@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
 /* VIKSEN----JOAN----IAGO----ADRIAN */
 
@@ -13,10 +13,8 @@
   font-size: 25px;
 }
 #Clogo{
-  margin-left: -10px;
-  margin-right: 25px;
-  margin-top: 7px;
-}
+  margin-left: 10px;
+ }
 .menu-icon{
   width: 35px;
   height: 35px;
