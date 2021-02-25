@@ -27,7 +27,7 @@ using FRONTEND.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7b1c168bfa1c88dfc7a763f147a50e156778b11f", @"/Views/Paginas/Error404.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"70a1d40a5a293fadcef34c0fd2e4b963b2a9f1f3", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e418f55887d3239c3cfb26b9d4d64ff98dc646fa", @"/Views/_ViewImports.cshtml")]
     public class Views_Paginas_Error404 : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998
