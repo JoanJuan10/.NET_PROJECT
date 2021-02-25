@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LuZTFu4GJfBt4xf5UuZPwPeKWlY+SPRc6pPS1BaVjsvi2D3B9D9JdSJ37Hv0gNmH4phpxvoe2s+2xrP10qwmVg==",
+  "dgSpecHash": "YSlCqfKbQNlvDAmXz83ZummgJuGcnmYuyyEp9p1kY2UKQJEjeNUxL5/OjC2MkZYn8W6NjJ5StNPv+v7zgpf6/Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\.NET_PROJECT\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
+  "projectFilePath": "C:\\Users\\viiksen\\Documents\\curso NET\\GitKraken\\ProyectoFinal\\Proyecto\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\viiksen\\.nuget\\packages\\bootstrap\\4.6.0\\bootstrap.4.6.0.nupkg.sha512",
     "C:\\Users\\viiksen\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
