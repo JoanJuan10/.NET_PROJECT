@@ -39,58 +39,165 @@ function GETTrabajadores () {
             'Authorization':'Bearer ' + token
         },
         contentType:'application/x-www-form-urlencoded',
-        success: function (response) {
-            console.log(response);
-            var gridDataSource = new kendo.data.DataSource({
-                data: response,
-                schema: {
-                    model: {
-                        fields: {
-                            id: { type: "number" },
-                            nombre: { type: "string" },
-                            apellido1: { type: "string" },
-                            apellido2: { type: "string" },
-                        }
-                    }
+        success: function (trabajadores) {
+            $.ajax({
+                method: "GET",
+                url: "https://localhost:44311/api/Empresas",
+                dataType: "json",
+                headers: {
+                    'Accept':'application/json',
+                    'Authorization':'Bearer ' + token
                 },
-                pageSize: 10,
-                sort: {
-                    field: "nombre",
-                    dir: "desc"
+                contentType:'application/x-www-form-urlencoded',
+                success: function (empresas) {
+                    $.ajax({
+                        method: "GET",
+                        url: "https://localhost:44311/api/Categorias",
+                        dataType: "json",
+                        headers: {
+                            'Accept':'application/json',
+                            'Authorization':'Bearer ' + token
+                        },
+                        contentType:'application/x-www-form-urlencoded',
+                        success: function (categorias) {
+                            console.log(categorias);
+                            $.ajax({
+                                method: "GET",
+                                url: "https://localhost:44311/api/Cuerpos",
+                                dataType: "json",
+                                headers: {
+                                    'Accept':'application/json',
+                                    'Authorization':'Bearer ' + token
+                                },
+                                contentType:'application/x-www-form-urlencoded',
+                                success: function (cuerpos) {
+                                    console.log(cuerpos);
+                                    $.ajax({
+                                        method: "GET",
+                                        url: "https://localhost:44311/api/TProvis",
+                                        dataType: "json",
+                                        headers: {
+                                            'Accept':'application/json',
+                                            'Authorization':'Bearer ' + token
+                                        },
+                                        contentType:'application/x-www-form-urlencoded',
+                                        success: function (tprovis) {
+                                            console.log(tprovis);
+                                            var data = [];
+                                            $.each(trabajadores, function (key, val) {
+                                                $.each(empresas, function (keyEmpresa, valEmpresa) {
+                                                    if (val.idEmpresa == valEmpresa.idEmpresa) {
+                                                        $.each(categorias, function (keyCategoria, valCategoria) { 
+                                                            if (val.idCategoria == valCategoria.categori) {
+                                                                $.each(cuerpos, function (keyCuerpos, valCuerpos) { 
+                                                                    if (val.cuerpo == valCuerpos.cuerpo) {
+                                                                        $.each(tprovis, function (keyTprovis, valTprovis) { 
+                                                                            if (val.tProvis == valTprovis.tProvis1) {
+                                                                                data.push({
+                                                                                    id: val.id,
+                                                                                    nombre: val.nombre + " " + val.apellido1 + " " + val.apellido2,
+                                                                                    tp: valTprovis.idClasePer,
+                                                                                    tprovis: valTprovis.descrip,
+                                                                                    empresa: valEmpresa.dEmpresa,
+                                                                                    grupo: val.grupo,
+                                                                                    categoria: valCategoria.descrip,
+                                                                                    cuerpo: valCuerpos.descrip,
+                                                                                });   
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                });
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            });
+                                            console.log(trabajadores);
+                                            var gridDataSource = new kendo.data.DataSource({
+                                                data: data,
+                                                schema: {
+                                                    model: {
+                                                        fields: {
+                                                            id: { type: "number" },
+                                                            nombre: { type: "string" },
+                                                            tp: { type: "string" },
+                                                            tprovis: { type: "string" },
+                                                            empresa: { type: "string"},
+                                                            grupo: { type: "string"},
+                                                            cuerpo: { type: "string"},
+                                                            categoria: { type: "string"},
+                                                            
+                                                        }
+                                                    }
+                                                },
+                                                pageSize: 17,
+                                                sort: {
+                                                    field: "nombre",
+                                                    dir: "desc"
+                                                }
+                                            });
+                                            $("#trabajadoresGrid").kendoGrid({
+                                                dataSource: gridDataSource,
+                                                height: 700,
+                                                scrollable: true,
+                                                pageable: true,
+                                                sortable: true,
+                                                filterable: true,
+                                                columns: [{
+                                                field:"id",
+                                                title: "Cod.",
+                                                width: 80
+                                                }, {
+                                                field: "nombre",
+                                                title: "Nombre",
+                                                width: 160,
+                                                }, {
+                                                field: "tp",
+                                                title: "TP",
+                                                width: 30,
+                                                }, {
+                                                field: "tprovis",
+                                                title: "Tipo de Empleado",
+                                                width: 160,
+                                                }, {
+                                                field: "empresa",
+                                                title: "Empresa",
+                                                width: 100,
+                                                }, {
+                                                field: "grupo",
+                                                title: "Grupo",
+                                                width: 40,
+                                                }, {
+                                                field: "cuerpo",
+                                                title: "Cuerpo",
+                                                width: 80,
+                                                }, {
+                                                field: "categoria",
+                                                title: "Categoria / Escala",
+                                                width: 80,
+                                                }]
+                                            });
+                                        },
+                                        error: function (error) {
+                                            console.log(error);
+                                        }
+                                    });
+                                    
+                                },
+                                error: function (error) {
+                                    console.log(error);
+                                }
+                            });
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
                 }
             });
-            $("#trabajadoresGrid").kendoGrid({
-                dataSource: gridDataSource,
-                height: 700,
-                scrollable: true,
-                pageable: true,
-                sortable: true,
-                filterable: true,
-                columns: [{
-                  field:"id",
-                  title: "Cod.",
-                  width: 160
-                }, {
-                  field: "nombre",
-                  title: "Nombre",
-                  width: 160,
-                }, {
-                  field: "apellido1",
-                  title: "Primer Apellido",
-                  width: 200,
-                }, {
-                  field: "apellido2",
-                  title: "Segundo Apellido",
-                  width: 200,
-                }]
-              });
-           /*var productos = [];
-            $.each(response, function (key, val) { 
-                   productos.push("<tr><td>" + val.productId + "</td><td>" + val.name + "</td><td>" + val.color + "</td><td>" + val.category + "</td><td>" + val.unitPrice + "</td><td>" + val.availableQuantity + '</td><td><button type="button" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button><button type="button" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td></tr>');
-            });
-            $.each(productos, function (key, val) { 
-                $("#productos").last().append(val);
-            });*/
         },
         error: function (error) {
             console.log(error);

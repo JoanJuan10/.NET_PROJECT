@@ -36,6 +36,10 @@ namespace API
             services.AddDbContextPool<BootcampDBContext>(options => options.UseSqlServer(connection));
             services.AddCors();
             services.AddControllers();
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
