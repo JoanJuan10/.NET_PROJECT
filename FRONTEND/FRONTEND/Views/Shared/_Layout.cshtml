@@ -27,6 +27,7 @@
         <button class="btn btn-link btn-sm order-1 order-lg-0 " id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
 
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/logos/C-logo.png" id="Clogo" /><img src="~/logos/Grupo-Castilla.png" id="GClogo" /></a>
+
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         </form>
@@ -71,7 +72,6 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <ul class="nav">
-
                         <li class="hov">
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon">
@@ -85,6 +85,7 @@
                         </li>
                         <li class="hov">
                             <a class="nav-link" asp-area="" asp-controller="Paginas" asp-action="Error404">
+
                                 <div class="sb-nav-link-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-tag menu-icon" viewBox="0 0 16 16">
                                         <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z" />
@@ -150,11 +151,12 @@
             <main>
                 <div class="container-fluid">
                     <div class="card mb-4">
-                        <div class="container">
-                            <main role="main" class="pb-3">
-                                @RenderBody()
-                            </main>
-                        </div>
+
+                                <div class="container">
+                                    <main role="main" class="pb-3">
+                                        @RenderBody()
+                                    </main>
+                                </div>                       
                     </div>
                 </div>
             </main>
