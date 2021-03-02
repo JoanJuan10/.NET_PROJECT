@@ -28,7 +28,8 @@ function callToken () {
         }
     });
 }
-function showDetails () {
+function showDetails (e) {
+    localStorage.setItem("id", this.dataItem($(e.currentTarget).closest("tr")).id);
     document.getElementById("fichaTrabajador").submit();
 }
 
