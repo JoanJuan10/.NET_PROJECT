@@ -20,16 +20,17 @@ function callToken () {
             'Content-Type': 'application/json' 
         },
         success: function (response) {
-            sessionStorage.setItem("token", response);
+            localStorage.setItem("token", response);
+            GETTrabajadores(response);
         },
         error: function (error) {
             console.log(error);
         }
     });
 }
-function GETTrabajadores () {
+function GETTrabajadores (token) {
     // FUNCIONA
-    var token = sessionStorage.getItem("token");
+    //var token = localStorage.getItem("token");
     $.ajax({
         method: "GET",
         url: "https://localhost:44311/api/Trabajadores",

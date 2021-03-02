@@ -8,15 +8,12 @@
     <div id="trabajadoresGrid"></div>
 </div>
 
-@if (SignInManager.IsSignedIn(User))
-{
-    @section Scripts {
-        <script>
-            setTimeout(GETTrabajadores, 300);
-            /*if (sessionStorage.getItem("token")) {
-                GETTrabajadores();
-            }*/
-        </script>
-    }
+@section Scripts {
+    <script>
+        //setTimeout(GETTrabajadores, 300);
+        callToken();
+            
+    </script>
 }
+
 
