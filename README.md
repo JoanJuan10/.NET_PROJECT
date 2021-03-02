@@ -11,7 +11,6 @@ MS Sql Virtualizada sobre Fedora 32.
 ```
 Joan Baza - Back end Developer
 Iago Gonzalez - Back end Developer
-Adrian Pobo - Front end Developer
 Viksen Senkov - Front end Developer
 ```
 
