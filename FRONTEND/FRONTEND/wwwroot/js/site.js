@@ -28,6 +28,10 @@ function callToken () {
         }
     });
 }
+function showDetails () {
+    alert("Funciono");
+}
+
 function GETTrabajadores (token) {
     // FUNCIONA
     //var token = localStorage.getItem("token");
@@ -119,7 +123,7 @@ function GETTrabajadores (token) {
                                                 schema: {
                                                     model: {
                                                         fields: {
-                                                            id: { type: "number" },
+                                                            id: { type: "int" },
                                                             nombre: { type: "string" },
                                                             tp: { type: "string" },
                                                             tprovis: { type: "string" },
@@ -175,6 +179,10 @@ function GETTrabajadores (token) {
                                                 }, {
                                                 field: "categoria",
                                                 title: "Categoria / Escala",
+                                                width: 80,
+                                                }, {
+                                                command: { text: 'Editar', click: showDetails },
+                                                title: "Opciones",
                                                 width: 80,
                                                 }]
                                             });
