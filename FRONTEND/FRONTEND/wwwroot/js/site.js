@@ -28,8 +28,9 @@ function callToken () {
         }
     });
 }
-function showDetails () {
-    alert("Funciono");
+function showDetails (e) {
+    localStorage.setItem("id", this.dataItem($(e.currentTarget).closest("tr")).id);
+    document.getElementById("fichaTrabajador").submit();
 }
 
 function GETTrabajadores (token) {
