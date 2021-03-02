@@ -155,11 +155,11 @@ function GETTrabajadores (token) {
                                                 }, {
                                                 field: "tp",
                                                 title: "TP",
-                                                width: 30,
+                                                width: 50,
                                                 }, {
                                                 field: "tprovis",
                                                 title: "Tipo de Empleado",
-                                                width: 160,
+                                                width: 150,
                                                 }, {
                                                 field: "empresa",
                                                 title: "Empresa",
@@ -167,7 +167,7 @@ function GETTrabajadores (token) {
                                                 }, {
                                                 field: "grupo",
                                                 title: "Grupo",
-                                                width: 40,
+                                                width: 60,
                                                 }, {
                                                 field: "cuerpo",
                                                 title: "Cuerpo",
