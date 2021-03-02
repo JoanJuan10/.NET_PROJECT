@@ -20,16 +20,17 @@ function callToken () {
             'Content-Type': 'application/json' 
         },
         success: function (response) {
-            sessionStorage.setItem("token", response);
+            localStorage.setItem("token", response);
+            GETTrabajadores(response);
         },
         error: function (error) {
             console.log(error);
         }
     });
 }
-function GETTrabajadores () {
+function GETTrabajadores (token) {
     // FUNCIONA
-    var token = sessionStorage.getItem("token");
+    //var token = localStorage.getItem("token");
     $.ajax({
         method: "GET",
         url: "https://localhost:44311/api/Trabajadores",
@@ -154,11 +155,11 @@ function GETTrabajadores () {
                                                 }, {
                                                 field: "tp",
                                                 title: "TP",
-                                                width: 30,
+                                                width: 50,
                                                 }, {
                                                 field: "tprovis",
                                                 title: "Tipo de Empleado",
-                                                width: 160,
+                                                width: 150,
                                                 }, {
                                                 field: "empresa",
                                                 title: "Empresa",
@@ -166,7 +167,7 @@ function GETTrabajadores () {
                                                 }, {
                                                 field: "grupo",
                                                 title: "Grupo",
-                                                width: 40,
+                                                width: 60,
                                                 }, {
                                                 field: "cuerpo",
                                                 title: "Cuerpo",
@@ -203,6 +204,4 @@ function GETTrabajadores () {
             console.log(error);
         }
     });
-    
-    
 }
