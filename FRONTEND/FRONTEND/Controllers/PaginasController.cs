@@ -12,5 +12,9 @@ namespace FRONTEND.Controllers
         {
             return View();
         }
+        public IActionResult FichaTrabajador()
+        {
+            return View();
+        }
     }
 }

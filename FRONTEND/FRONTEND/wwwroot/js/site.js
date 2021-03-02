@@ -29,7 +29,7 @@ function callToken () {
     });
 }
 function showDetails () {
-    alert("Funciono");
+    document.getElementById("fichaTrabajador").submit();
 }
 
 function GETTrabajadores (token) {
