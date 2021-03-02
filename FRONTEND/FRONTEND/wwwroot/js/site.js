@@ -203,6 +203,4 @@ function GETTrabajadores () {
             console.log(error);
         }
     });
-    
-    
 }
