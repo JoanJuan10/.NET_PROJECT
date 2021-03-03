@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="~/css/styles.css" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+    
+    
+
 </head>
 <body>
     @using Microsoft.AspNetCore.Identity
@@ -143,10 +146,11 @@
 
             <main role="main" class="pb-3">
                 @RenderBody()
-            </main>
 
+            </main>
         </div>
     </div>
+
 
     <footer class="bg-light mt-auto">
         <div class="container-fluid">
@@ -171,7 +175,6 @@
     <script src="~/kendoui/js/messages/kendo.messages.es-ES.min.js"></script>
 
     <script src="~/js/site.js"></script>
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>

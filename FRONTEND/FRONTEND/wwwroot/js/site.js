@@ -38,6 +38,7 @@ function showDetails(e) {
 }
 
 function getTrabajadores(token) {
+
     // FUNCIONA
     //var token = localStorage.getItem("token");
     $.ajax({
@@ -69,6 +70,7 @@ function getTrabajadores(token) {
                             'Authorization': 'Bearer ' + token
                         },
                         contentType: 'application/x-www-form-urlencoded',
+
                         success: function (categorias) {
                             console.log(categorias);
                             $.ajax({
@@ -97,11 +99,13 @@ function getTrabajadores(token) {
                                             $.each(trabajadores, function (key, val) {
                                                 $.each(empresas, function (keyEmpresa, valEmpresa) {
                                                     if (val.idEmpresa == valEmpresa.idEmpresa) {
+
                                                         $.each(categorias, function (keyCategoria, valCategoria) {
                                                             if (val.idCategoria == valCategoria.categori) {
                                                                 $.each(cuerpos, function (keyCuerpos, valCuerpos) {
                                                                     if (val.cuerpo == valCuerpos.cuerpo) {
                                                                         $.each(tprovis, function (keyTprovis, valTprovis) {
+
                                                                             if (val.tProvis == valTprovis.tProvis1) {
                                                                                 data.push({
                                                                                     id: val.id,
@@ -113,6 +117,7 @@ function getTrabajadores(token) {
                                                                                     categoria: valCategoria.descrip,
                                                                                     cuerpo: valCuerpos.descrip,
                                                                                 });
+
                                                                             }
                                                                         });
                                                                     }
@@ -136,6 +141,7 @@ function getTrabajadores(token) {
                                                             grupo: { type: "string" },
                                                             cuerpo: { type: "string" },
                                                             categoria: { type: "string" },
+
                                                         }
                                                     }
                                                 },
@@ -189,6 +195,7 @@ function getTrabajadores(token) {
                                                     command: { text: 'Editar', click: showDetails },
                                                     title: "Opciones",
                                                     width: 80,
+
                                                 }]
                                             });
                                         },
@@ -196,7 +203,6 @@ function getTrabajadores(token) {
                                             console.log(error);
                                         }
                                     });
-
                                 },
                                 error: function (error) {
                                     console.log(error);
@@ -255,5 +261,3 @@ $(document).ready(function () {
 
     callToken();    
 });
-
-
