@@ -46,7 +46,7 @@ namespace API.Controllers
         // PUT: api/Cuerpos/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
+        /*[HttpPut("{id}")]
         public async Task<IActionResult> PutCuerpos(string id, Cuerpos cuerpos)
         {
             if (id != cuerpos.Cuerpo)
@@ -120,6 +120,6 @@ namespace API.Controllers
         private bool CuerposExists(string id)
         {
             return _context.Cuerpos.Any(e => e.Cuerpo == id);
-        }
+        }*/
     }
 }
