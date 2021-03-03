@@ -40,7 +40,7 @@ function showDetails(e) {
 
 function getTrabajadores(token) {
     // FUNCIONA
-    //var token = localStorage.getItem("token");
+
     $.ajax({
         method: "GET",
         url: "https://localhost:44311/api/Trabajadores",
@@ -261,9 +261,3 @@ function getUnidadesOrganizativas(token) {
         }
     });
 }
-
-$(document).ready(function () {
-    
-
-    callToken();    
-});
