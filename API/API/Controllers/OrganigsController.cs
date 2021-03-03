@@ -46,7 +46,7 @@ namespace API.Controllers
         // PUT: api/Organigs/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
+        /*[HttpPut("{id}")]
         public async Task<IActionResult> PutOrganig(string id, Organig organig)
         {
             if (id != organig.IdOrganig)
@@ -120,6 +120,6 @@ namespace API.Controllers
         private bool OrganigExists(string id)
         {
             return _context.Organig.Any(e => e.IdOrganig == id);
-        }
+        }*/
     }
 }

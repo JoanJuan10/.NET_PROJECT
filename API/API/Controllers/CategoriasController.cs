@@ -46,7 +46,7 @@ namespace API.Controllers
         // PUT: api/Categorias/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
+        /*[HttpPut("{id}")]
         public async Task<IActionResult> PutCategors(string id, Categors categors)
         {
             if (id != categors.Categori)
@@ -120,6 +120,6 @@ namespace API.Controllers
         private bool CategorsExists(string id)
         {
             return _context.Categors.Any(e => e.Categori == id);
-        }
+        }*/
     }
 }
