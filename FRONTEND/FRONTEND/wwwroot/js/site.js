@@ -3,10 +3,10 @@
 
 // Write your JavaScript code.
 
-function callToken () {
+function callToken() {
     var data = {
-        "Email":"InventoryAdmin@abc.com",
-        "Password":"$admin@2017"
+        "Email": "InventoryAdmin@abc.com",
+        "Password": "$admin@2017"
     };
 
     // FUNCIONA
@@ -15,25 +15,30 @@ function callToken () {
         url: "https://localhost:44311/api/Token",
         dataType: "json",
         data: JSON.stringify(data),
-        headers: { 
+        headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json' 
+            'Content-Type': 'application/json'
         },
         success: function (response) {
             localStorage.setItem("token", response);
-            GETTrabajadores(response);
+
+            getTrabajadores(response);
+
+            getUnidadesOrganizativas(response);
         },
         error: function (error) {
             console.log(error);
         }
     });
 }
-function showDetails (e) {
+
+function showDetails(e) {
     localStorage.setItem("id", this.dataItem($(e.currentTarget).closest("tr")).id);
     document.getElementById("fichaTrabajador").submit();
 }
 
-function GETTrabajadores (token) {
+function getTrabajadores(token) {
+
     // FUNCIONA
     //var token = localStorage.getItem("token");
     $.ajax({
@@ -41,30 +46,31 @@ function GETTrabajadores (token) {
         url: "https://localhost:44311/api/Trabajadores",
         dataType: "json",
         headers: {
-            'Accept':'application/json',
-            'Authorization':'Bearer ' + token
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + token
         },
-        contentType:'application/x-www-form-urlencoded',
+        contentType: 'application/x-www-form-urlencoded',
         success: function (trabajadores) {
             $.ajax({
                 method: "GET",
                 url: "https://localhost:44311/api/Empresas",
                 dataType: "json",
                 headers: {
-                    'Accept':'application/json',
-                    'Authorization':'Bearer ' + token
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + token
                 },
-                contentType:'application/x-www-form-urlencoded',
+                contentType: 'application/x-www-form-urlencoded',
                 success: function (empresas) {
                     $.ajax({
                         method: "GET",
                         url: "https://localhost:44311/api/Categorias",
                         dataType: "json",
                         headers: {
-                            'Accept':'application/json',
-                            'Authorization':'Bearer ' + token
+                            'Accept': 'application/json',
+                            'Authorization': 'Bearer ' + token
                         },
-                        contentType:'application/x-www-form-urlencoded',
+                        contentType: 'application/x-www-form-urlencoded',
+
                         success: function (categorias) {
                             console.log(categorias);
                             $.ajax({
@@ -72,10 +78,10 @@ function GETTrabajadores (token) {
                                 url: "https://localhost:44311/api/Cuerpos",
                                 dataType: "json",
                                 headers: {
-                                    'Accept':'application/json',
-                                    'Authorization':'Bearer ' + token
+                                    'Accept': 'application/json',
+                                    'Authorization': 'Bearer ' + token
                                 },
-                                contentType:'application/x-www-form-urlencoded',
+                                contentType: 'application/x-www-form-urlencoded',
                                 success: function (cuerpos) {
                                     console.log(cuerpos);
                                     $.ajax({
@@ -83,21 +89,23 @@ function GETTrabajadores (token) {
                                         url: "https://localhost:44311/api/TProvis",
                                         dataType: "json",
                                         headers: {
-                                            'Accept':'application/json',
-                                            'Authorization':'Bearer ' + token
+                                            'Accept': 'application/json',
+                                            'Authorization': 'Bearer ' + token
                                         },
-                                        contentType:'application/x-www-form-urlencoded',
+                                        contentType: 'application/x-www-form-urlencoded',
                                         success: function (tprovis) {
                                             console.log(tprovis);
                                             var data = [];
                                             $.each(trabajadores, function (key, val) {
                                                 $.each(empresas, function (keyEmpresa, valEmpresa) {
                                                     if (val.idEmpresa == valEmpresa.idEmpresa) {
-                                                        $.each(categorias, function (keyCategoria, valCategoria) { 
+
+                                                        $.each(categorias, function (keyCategoria, valCategoria) {
                                                             if (val.idCategoria == valCategoria.categori) {
-                                                                $.each(cuerpos, function (keyCuerpos, valCuerpos) { 
+                                                                $.each(cuerpos, function (keyCuerpos, valCuerpos) {
                                                                     if (val.cuerpo == valCuerpos.cuerpo) {
-                                                                        $.each(tprovis, function (keyTprovis, valTprovis) { 
+                                                                        $.each(tprovis, function (keyTprovis, valTprovis) {
+
                                                                             if (val.tProvis == valTprovis.tProvis1) {
                                                                                 data.push({
                                                                                     id: val.id,
@@ -108,7 +116,8 @@ function GETTrabajadores (token) {
                                                                                     grupo: val.grupo,
                                                                                     categoria: valCategoria.descrip,
                                                                                     cuerpo: valCuerpos.descrip,
-                                                                                });   
+                                                                                });
+
                                                                             }
                                                                         });
                                                                     }
@@ -118,7 +127,7 @@ function GETTrabajadores (token) {
                                                     }
                                                 });
                                             });
-                                            console.log(trabajadores);
+
                                             var gridDataSource = new kendo.data.DataSource({
                                                 data: data,
                                                 schema: {
@@ -128,11 +137,11 @@ function GETTrabajadores (token) {
                                                             nombre: { type: "string" },
                                                             tp: { type: "string" },
                                                             tprovis: { type: "string" },
-                                                            empresa: { type: "string"},
-                                                            grupo: { type: "string"},
-                                                            cuerpo: { type: "string"},
-                                                            categoria: { type: "string"},
-                                                            
+                                                            empresa: { type: "string" },
+                                                            grupo: { type: "string" },
+                                                            cuerpo: { type: "string" },
+                                                            categoria: { type: "string" },
+
                                                         }
                                                     }
                                                 },
@@ -142,6 +151,7 @@ function GETTrabajadores (token) {
                                                     dir: "desc"
                                                 }
                                             });
+
                                             $("#trabajadoresGrid").kendoGrid({
                                                 dataSource: gridDataSource,
                                                 height: 700,
@@ -150,41 +160,42 @@ function GETTrabajadores (token) {
                                                 sortable: true,
                                                 filterable: true,
                                                 columns: [{
-                                                field:"id",
-                                                title: "Cod.",
-                                                width: 80
+                                                    field: "id",
+                                                    title: "Cod.",
+                                                    width: 80
                                                 }, {
-                                                field: "nombre",
-                                                title: "Nombre",
-                                                width: 160,
+                                                    field: "nombre",
+                                                    title: "Nombre",
+                                                    width: 160,
                                                 }, {
-                                                field: "tp",
-                                                title: "TP",
-                                                width: 50,
+                                                    field: "tp",
+                                                    title: "TP",
+                                                    width: 50,
                                                 }, {
-                                                field: "tprovis",
-                                                title: "Tipo de Empleado",
-                                                width: 150,
+                                                    field: "tprovis",
+                                                    title: "Tipo de Empleado",
+                                                    width: 150,
                                                 }, {
-                                                field: "empresa",
-                                                title: "Empresa",
-                                                width: 100,
+                                                    field: "empresa",
+                                                    title: "Empresa",
+                                                    width: 100,
                                                 }, {
-                                                field: "grupo",
-                                                title: "Grupo",
-                                                width: 60,
+                                                    field: "grupo",
+                                                    title: "Grupo",
+                                                    width: 60,
                                                 }, {
-                                                field: "cuerpo",
-                                                title: "Cuerpo",
-                                                width: 80,
+                                                    field: "cuerpo",
+                                                    title: "Cuerpo",
+                                                    width: 80,
                                                 }, {
-                                                field: "categoria",
-                                                title: "Categoria / Escala",
-                                                width: 80,
+                                                    field: "categoria",
+                                                    title: "Categoria / Escala",
+                                                    width: 80,
                                                 }, {
-                                                command: { text: 'Editar', click: showDetails },
-                                                title: "Opciones",
-                                                width: 80,
+                                                    command: { text: 'Editar', click: showDetails },
+                                                    title: "Opciones",
+                                                    width: 80,
+
                                                 }]
                                             });
                                         },
@@ -192,7 +203,6 @@ function GETTrabajadores (token) {
                                             console.log(error);
                                         }
                                     });
-                                    
                                 },
                                 error: function (error) {
                                     console.log(error);
@@ -214,3 +224,40 @@ function GETTrabajadores (token) {
         }
     });
 }
+
+function getUnidadesOrganizativas(token) {
+    $.ajax({
+        method: "GET",
+        url: "https://localhost:44311/api/NivOrgs",
+        dataType: "json",
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        contentType: 'application/x-www-form-urlencoded',
+        success: function (data) {
+            console.log(data);
+            for (let unidad of data) {
+                if (unidad.categNivel === "861") {
+                    let element = `
+                        <li>
+                            ${unidad.dNivel}
+                        </li>
+                    `;
+
+                    $('.table-filter').append(element);
+                }
+            }
+
+            $('.table-filter li').click(function () {
+                alert('funciona');
+            });
+        }
+    });
+}
+
+$(document).ready(function () {
+    
+
+    callToken();    
+});
