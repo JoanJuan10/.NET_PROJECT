@@ -1,17 +1,17 @@
 <div class="container-fluid">
-    <h2 id="fichaH2">ALCALDE</h2>
+    <h2 id="fichaH2"></h2>
 
-    <p class="up-right id">00152</p>
-    <p class="up-right version">V.1</p>
-    <p class="up-right tipo">FUNCIONARIO</p>
-    <p class="up-right grupo">GENERICO</p>
+    <p class="up-right" id="idTrabajador"></p>
+    <p class="up-right" id="version">V.1</p>
+    <p class="up-right" id="tipo"></p>
+    <p class="up-right" id="generico"></p>
 
-    <p class="up-left u-org">AJUNTAMENT</p>
-    <p class="up-left puesto">ALCALDE</p>
+    <p class="up-left" id="u-org"></p>
+    <p class="up-left" id="puesto"></p>
     <br>
 
     <h4 id="fichaH4">Retribución</h4>
-    <p><strong>Grupo profesional </strong> &emsp; &emsp; A1 &emsp; &emsp; 15.928,12€</p>
+    <p id="grupo"><strong>Grupo profesional </strong></p>
 
     <button class="accordion FichaT">
         <i class="fas fa-cogs"></i>
@@ -62,19 +62,23 @@
 </div>
 <link rel="stylesheet" href="~/css/FichaT.css" />
 
-<script>
-    var acc = document.getElementsByClassName("FichaT");
-    var i;
+@section Scripts {
+    <script>
+        var acc = document.getElementsByClassName("FichaT");
+        var i;
 
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-        });
-    }
-</script>
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+    <script src="~/js/FichaTrabajador.js"></script>
+}
+
