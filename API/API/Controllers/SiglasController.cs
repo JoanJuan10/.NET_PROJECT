@@ -46,80 +46,80 @@ namespace API.Controllers
         // PUT: api/Siglas/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutSiglas(string id, Siglas siglas)
-        {
-            if (id != siglas.Siglas1)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutSiglas(string id, Siglas siglas)
+        //{
+        //    if (id != siglas.Siglas1)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(siglas).State = EntityState.Modified;
+        //    _context.Entry(siglas).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SiglasExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!SiglasExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        // POST: api/Siglas
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<Siglas>> PostSiglas(Siglas siglas)
-        {
-            _context.Siglas.Add(siglas);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (SiglasExists(siglas.Siglas1))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //// POST: api/Siglas
+        //// To protect from overposting attacks, enable the specific properties you want to bind to, for
+        //// more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        //[HttpPost]
+        //public async Task<ActionResult<Siglas>> PostSiglas(Siglas siglas)
+        //{
+        //    _context.Siglas.Add(siglas);
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (SiglasExists(siglas.Siglas1))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return CreatedAtAction("GetSiglas", new { id = siglas.Siglas1 }, siglas);
-        }
+        //    return CreatedAtAction("GetSiglas", new { id = siglas.Siglas1 }, siglas);
+        //}
 
-        // DELETE: api/Siglas/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Siglas>> DeleteSiglas(string id)
-        {
-            var siglas = await _context.Siglas.FindAsync(id);
-            if (siglas == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Siglas/5
+        //[HttpDelete("{id}")]
+        //public async Task<ActionResult<Siglas>> DeleteSiglas(string id)
+        //{
+        //    var siglas = await _context.Siglas.FindAsync(id);
+        //    if (siglas == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _context.Siglas.Remove(siglas);
-            await _context.SaveChangesAsync();
+        //    _context.Siglas.Remove(siglas);
+        //    await _context.SaveChangesAsync();
 
-            return siglas;
-        }
+        //    return siglas;
+        //}
 
-        private bool SiglasExists(string id)
-        {
-            return _context.Siglas.Any(e => e.Siglas1 == id);
-        }
+        //private bool SiglasExists(string id)
+        //{
+        //    return _context.Siglas.Any(e => e.Siglas1 == id);
+        //}
     }
 }
