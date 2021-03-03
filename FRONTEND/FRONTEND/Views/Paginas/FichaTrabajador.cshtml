@@ -1,7 +1,80 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+<div class="container-fluid">
+    <h2 id="fichaH2">ALCALDE</h2>
 
-<p></p>
+    <p class="up-right id">00152</p>
+    <p class="up-right version">V.1</p>
+    <p class="up-right tipo">FUNCIONARIO</p>
+    <p class="up-right grupo">GENERICO</p>
+
+    <p class="up-left u-org">AJUNTAMENT</p>
+    <p class="up-left puesto">ALCALDE</p>
+    <br>
+
+    <h4 id="fichaH4">Retribución</h4>
+    <p><strong>Grupo profesional </strong> &emsp; &emsp; A1 &emsp; &emsp; 15.928,12€</p>
+
+    <button class="accordion FichaT">
+        <i class="fas fa-cogs"></i>
+        Funciones
+    </button>
+    <div class="panel">
+        <hr>
+        <p>Aqui se muestran las funciones que desemplea el trabajador en la empresa.</p>
+    </div>
+
+    <button class="accordion FichaT">
+        <i class="fas fa-rocket"></i>
+        Misiones
+    </button>
+    <div class="panel">
+        <hr>
+        <p>Aqui se muestran las misiones que tiene el trabajador en la empresa.</p>
+    </div>
+
+    <button class="accordion FichaT">
+        <i class="fas fa-graduation-cap"></i>
+        Titulaciones
+    </button>
+    <div class="panel">
+        <hr>
+        <p>Aqui se muestran las titutlaciones de las que dispone el trabajador.</p>
+    </div>
+
+    <button class="accordion FichaT">
+        <i class="fas fa-chalkboard-teacher"></i>
+        Formación específica
+    </button>
+    <div class="panel">
+        <hr>
+        <p>Aqui se muestra la titulación específica de la que dispone el trabajador además de sus titulaciones.</p>
+    </div>
+
+    <button class="accordion FichaT">
+        <i class="fas fa-comment-dots"></i>
+        Idiomas
+    </button>
+    <div class="panel">
+        <hr>
+        <p>Aqui se muestran los idiomas que sabe el trabajador.</p>
+    </div>
+
+
+</div>
+<link rel="stylesheet" href="~/css/FichaT.css" />
+
+<script>
+    var acc = document.getElementsByClassName("FichaT");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
