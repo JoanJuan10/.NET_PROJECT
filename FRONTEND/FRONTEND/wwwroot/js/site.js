@@ -3,6 +3,7 @@
 
 // Write your JavaScript code.
 
+
 function callToken() {
     var data = {
         "Email": "InventoryAdmin@abc.com",
@@ -31,14 +32,13 @@ function callToken() {
         }
     });
 }
-
 function showDetails(e) {
+
     localStorage.setItem("id", this.dataItem($(e.currentTarget).closest("tr")).id);
     document.getElementById("fichaTrabajador").submit();
 }
 
 function getTrabajadores(token) {
-
     // FUNCIONA
     //var token = localStorage.getItem("token");
     $.ajax({
@@ -46,6 +46,7 @@ function getTrabajadores(token) {
         url: "https://localhost:44311/api/Trabajadores",
         dataType: "json",
         headers: {
+
             'Accept': 'application/json',
             'Authorization': 'Bearer ' + token
         },
@@ -66,6 +67,7 @@ function getTrabajadores(token) {
                         url: "https://localhost:44311/api/Categorias",
                         dataType: "json",
                         headers: {
+
                             'Accept': 'application/json',
                             'Authorization': 'Bearer ' + token
                         },
@@ -78,10 +80,12 @@ function getTrabajadores(token) {
                                 url: "https://localhost:44311/api/Cuerpos",
                                 dataType: "json",
                                 headers: {
+
                                     'Accept': 'application/json',
                                     'Authorization': 'Bearer ' + token
                                 },
                                 contentType: 'application/x-www-form-urlencoded',
+
                                 success: function (cuerpos) {
                                     console.log(cuerpos);
                                     $.ajax({
@@ -89,6 +93,7 @@ function getTrabajadores(token) {
                                         url: "https://localhost:44311/api/TProvis",
                                         dataType: "json",
                                         headers: {
+
                                             'Accept': 'application/json',
                                             'Authorization': 'Bearer ' + token
                                         },
@@ -105,6 +110,7 @@ function getTrabajadores(token) {
                                                                 $.each(cuerpos, function (keyCuerpos, valCuerpos) {
                                                                     if (val.cuerpo == valCuerpos.cuerpo) {
                                                                         $.each(tprovis, function (keyTprovis, valTprovis) {
+
 
                                                                             if (val.tProvis == valTprovis.tProvis1) {
                                                                                 data.push({
