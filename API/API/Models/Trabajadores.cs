@@ -59,6 +59,11 @@ namespace API.Models
         public string TelefEmerg { get; set; }
         public string Telefono1 { get; set; }
         public string Telefono2 { get; set; }
+        public string Funciones { get; set; }
+        public string Misiones { get; set; }
+        public string Titulaciones { get; set; }
+        public string Formacion { get; set; }
+        public string Idiomas { get; set; }
 
         public virtual Cuerpos CuerpoNavigation { get; set; }
         public virtual Grupos GrupoNavigation { get; set; }
