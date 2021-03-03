@@ -122,7 +122,7 @@ function getTrabajadores(token) {
                                                     }
                                                 });
                                             });
-                                            console.log(trabajadores);
+
                                             var gridDataSource = new kendo.data.DataSource({
                                                 data: data,
                                                 schema: {
@@ -136,7 +136,6 @@ function getTrabajadores(token) {
                                                             grupo: { type: "string" },
                                                             cuerpo: { type: "string" },
                                                             categoria: { type: "string" },
-
                                                         }
                                                     }
                                                 },
@@ -146,6 +145,7 @@ function getTrabajadores(token) {
                                                     dir: "desc"
                                                 }
                                             });
+
                                             $("#trabajadoresGrid").kendoGrid({
                                                 dataSource: gridDataSource,
                                                 height: 700,
@@ -230,19 +230,30 @@ function getUnidadesOrganizativas(token) {
         },
         contentType: 'application/x-www-form-urlencoded',
         success: function (data) {
+            console.log(data);
             for (let unidad of data) {
-                let element = `
-                    <li>
-                        ${unidad.dNivel}
-                    </li>
-                `;
+                if (unidad.categNivel === "861") {
+                    let element = `
+                        <li>
+                            ${unidad.dNivel}
+                        </li>
+                    `;
 
-                $('.table-filter').append(element);
+                    $('.table-filter').append(element);
+                }
             }
+
+            $('.table-filter li').click(function () {
+                alert('funciona');
+            });
         }
     });
 }
 
 $(document).ready(function () {
+    
+
     callToken();    
 });
+
+
