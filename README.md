@@ -10,7 +10,7 @@ MS Sql Virtualizada sobre Fedora 32.
 #### 2. Componentes del Equipo
 ```
 Joan Baza - Back end Developer
-Iago Gonzalez - Back end Developer
+Iago Gonzalez - Back end y Front end Developer
 Viksen Senkov - Front end Developer
 ```
 
