@@ -10,18 +10,18 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-//using API.Models;
+using API.Models;
 
-namespace API_C07_JWT.Controllers
+namespace API.Controllers
 {
-    /*[Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class TokenController : ControllerBase
     {
         public IConfiguration _configuration;
-        private readonly InventoryContext _context;
+        private readonly BootcampDBContext _context;
 
-        public TokenController(IConfiguration config, InventoryContext context)
+        public TokenController(IConfiguration config, BootcampDBContext context)
         {
             _configuration = config;
             _context = context;
@@ -37,7 +37,6 @@ namespace API_C07_JWT.Controllers
 
                 if (user != null)
                 {
-                    //create claims details based on the user information
                     var claims = new[] {
                     new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
@@ -72,5 +71,5 @@ namespace API_C07_JWT.Controllers
         {
             return await _context.UserInfo.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
         }
-    }*/
+    }
 }

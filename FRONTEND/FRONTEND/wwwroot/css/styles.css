@@ -26,26 +26,7 @@
 }
 /* fin pagina principal */
 
-/* login */
-#LoginLogo{
-  max-width: 400px;
-}
-#loginFondo{
-  background: linear-gradient(to bottom, rgb(28, 28, 189), whitesmoke);
-}
-/* fin login */
 
-/* registro */
-#registerFondo{
-  background: linear-gradient(to bottom, rgb(28, 28, 189), whitesmoke);
-}
-/* fin registro */
-
-/* tabla */
-tr:hover{
-  background-color: rgb(215, 219, 253);
-}
-/* fin tabla */
 
 
 

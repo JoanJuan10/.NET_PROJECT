@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\API"
+    "\\API",
+    "\\FRONTEND",
+    "\\FRONTEND\\FRONTEND"
   ],
-  "SelectedNode": "\\API\\API.sln",
+  "SelectedNode": "\\FRONTEND\\FRONTEND\\FRONTEND.csproj",
   "PreviewInSolutionExplorer": false
 }

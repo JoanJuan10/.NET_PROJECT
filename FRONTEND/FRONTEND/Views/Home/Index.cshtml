@@ -1,8 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@{ ViewData["Title"] = "Home Page"; }
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 <div class="text-center">
-    <h1 class="display-4">Bienvenido</h1>
-    <p>Este el proyecto final del Grupo 3 .NET</p>
+
+    <div id="trabajadoresGrid"></div>
+    <form class="form-inline d-none" id="fichaTrabajador" asp-area="" asp-controller="Paginas" asp-action="FichaTrabajador">
+        <button type="submit" class="nav-link btn btn-link text-dark d-none"></button>
+    </form>
 </div>
+
+@section Scripts {
+    <script>
+        //setTimeout(GETTrabajadores, 300);
+        callToken();
+            
+    </script>
+}
+
+
