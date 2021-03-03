@@ -860,7 +860,7 @@ namespace API.Models
 
             modelBuilder.Entity<Trabajadores>(entity =>
             {
-                entity.HasKey(e => new { e.IdEmpresa, e.IdTrabajador, e.IdOrganig, e.IdNivel });
+                entity.HasKey(e => new { e.Id });
 
                 entity.ToTable("TRABAJADORES");
 
@@ -1129,6 +1129,26 @@ namespace API.Models
                 entity.Property(e => e.Telefono2)
                     .HasColumnName("TELEFONO2")
                     .HasMaxLength(15)
+                    .IsUnicode(false);
+                entity.Property(e => e.Funciones)
+                    .HasColumnName("FUNCIONES")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+                entity.Property(e => e.Misiones)
+                    .HasColumnName("MISIONES")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+                entity.Property(e => e.Titulaciones)
+                    .HasColumnName("TITULACIONES")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+                entity.Property(e => e.Formacion)
+                    .HasColumnName("FORMACION")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+                entity.Property(e => e.Idiomas)
+                    .HasColumnName("IDIOMAS")
+                    .HasMaxLength(255)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.CuerpoNavigation)
