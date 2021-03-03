@@ -1130,6 +1130,26 @@ namespace API.Models
                     .HasColumnName("TELEFONO2")
                     .HasMaxLength(15)
                     .IsUnicode(false);
+                entity.Property(e => e.Funciones)
+                    .HasColumnName("FUNCIONES")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+                entity.Property(e => e.Misiones)
+                    .HasColumnName("MISIONES")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+                entity.Property(e => e.Titulaciones)
+                    .HasColumnName("TITULACIONES")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+                entity.Property(e => e.Formacion)
+                    .HasColumnName("FORMACION")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+                entity.Property(e => e.Idiomas)
+                    .HasColumnName("IDIOMAS")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.CuerpoNavigation)
                     .WithMany(p => p.Trabajadores)
