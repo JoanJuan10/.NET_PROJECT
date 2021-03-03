@@ -860,7 +860,7 @@ namespace API.Models
 
             modelBuilder.Entity<Trabajadores>(entity =>
             {
-                entity.HasKey(e => new { e.IdEmpresa, e.IdTrabajador, e.IdOrganig, e.IdNivel });
+                entity.HasKey(e => new { e.Id });
 
                 entity.ToTable("TRABAJADORES");
 
