@@ -7,7 +7,7 @@
     $("#Funciones").blur(function () {
         alert('funciona');
         T.funciones = $("#Funciones").text();
-
+        console.log(T);
         $.ajax({
             method: "PUT",
             url: "https://localhost:44311/api/Trabajadores/" + T.id,
