@@ -181,7 +181,7 @@ function getTrabajadores(token) {
                                                         }, {
                                                             field: "nombre",
                                                             title: "Nombre",
-                                                            width: 140,
+                                                            width: 120,
                                                         }, {
                                                             field: "tp",
                                                             title: "TP",
@@ -211,11 +211,12 @@ function getTrabajadores(token) {
                                                             title: "Unidad organizativa",
                                                             width: 80
                                                         }, {
-                                                                command: { text: 'Editar', click: showDetails, iconClass: 'fa fa-edit btn-grid' },
-
-                                                            //template: "<i class='fa fa-edit' onclick='showDetails($(this))'></i>",
+                                                            command: [
+                                                                { text: 'Ficha', click: showDetails, iconClass: 'fa fa-edit', className: 'btn-grid' },
+                                                                { text: 'Eliminar', iconClass: 'fa fa-trash', className: 'btn-grid-delete' }
+                                                            ],
                                                             title: "Opciones",
-                                                            width: 100,
+                                                            width: 120,
                                                         }]
                                                     });
                                                 },
@@ -273,7 +274,7 @@ function getUnidadesOrganizativas(token) {
                     $('.table-filter').append(element);
 
                     unidades.push(unidad.dNivel);
-                }                
+                }
             }
 
             $('.table-filter li').click(function () {
