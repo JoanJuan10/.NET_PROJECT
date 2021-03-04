@@ -8,6 +8,8 @@
         alert('funciona');
         T.funciones = $("#Funciones").text();
 
+        console.log(T);
+
         $.ajax({
             method: "PUT",
             url: "https://localhost:44311/api/Trabajadores/" + T.id,
@@ -17,7 +19,7 @@
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
             },
-            contentType: 'application/x-www-form-urlencoded',
+            contentType: 'application/json',
             error: function (error) {
                 console.log(error);
             }
