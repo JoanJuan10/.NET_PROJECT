@@ -1,59 +1,57 @@
 # .NET PROJECT
-Proyecto final del curso de .NET de Fundació Esplai
+Proyecto final del curso de programación .NET de Fundación Esplai para la empresa Grupo Castilla
 
-#### 1. Description
+#### 1. Descripción
 ```
 API REST creada con .NET Core 3.1 utilizando varias entidades ER y conectada con base de datos 
-MS Sql Virtualizada sobre Fedora 32.
+MS Sql guardada en un servidor gratuito de somee.com
 ```
 
-#### 2. Componentes del Equipo
+#### 2. Componentes del equipo
 ```
 Joan Baza - Back end Developer
-Iago Gonzalez - Back end y Front end Developer
+Iago Gonzalez - Back end & Front end Developer
 Viksen Senkov - Front end Developer
 ```
 
 #### 3. Lista con los pasos mínimos que se necesitan para clonar exitosamente el proyecto
 
-###### Install
+###### Instalación
 ```
 IDE               Visual Studio 2019 Community Version
 Core              C# 
 Framework         NET Core 3.1
 DataBase          Microsoft Sql Server 
-Virtual           VMWare Workstation / Virtual Box
-SO                Fedora 32
 ```
-###### packages Nuget 
+###### Paquetes nuGet 
 ```
-Install-Package System.IdentityModel.Tokens.Jwt                       -Version 5.6.0
-Install-Package Microsoft.AspNetCore.Authentication.JwtBearer         -Version 3.1.8
-Install-Package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore  -Version 3.1.10
-Install-Package Microsoft.AspNetCore.Identity.EntityFrameworkCore     -Version 3.1.12
-Install-Package Microsoft.AspNetCore.Identity.UI                      -Version 3.1.12 
-Install-Package Microsoft.EntityFrameworkCore.SqlServer               -Version 3.1.12
-Install-Package Microsoft.EntityFrameworkCore.Tools                   -Version 3.1.12 
-Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design      -Version 3.1.5 
+System.IdentityModel.Tokens.Jwt                       -Version 5.6.0
+Microsoft.AspNetCore.Authentication.JwtBearer         -Version 3.1.8
+Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore  -Version 3.1.10
+Microsoft.AspNetCore.Identity.EntityFrameworkCore     -Version 3.1.12
+Microsoft.AspNetCore.Identity.UI                      -Version 3.1.12 
+Microsoft.EntityFrameworkCore.SqlServer               -Version 3.1.12
+Microsoft.EntityFrameworkCore.Tools                   -Version 3.1.12 
+Microsoft.VisualStudio.Web.CodeGeneration.Design      -Version 3.1.5 
 ```
-###### Cadena de Conexión Base de datos en los diferentes proyectos
+###### Cadena de conexión a la base de datos en los diferentes proyectos
 appsettings.json (API)
 ```
 "AllowedHosts": "*",
   "ConnectionStrings": {
-    "NetflixDatabase": "Server=<IP LOCAL>;Database=DBBootcamp;User ID=<DB USER>;Password=<DB PASSWORD>"
-    }
+    "APIDatabase": "Server=<IP>;Database=BootCampDB;User ID=<DB USER>;Password=<DB PASSWORD>"
+  },
 ```
 appsettings.json (FRONT END)
 ```
-"AllowedHosts": "*",
+{
   "ConnectionStrings": {
-    "NetflixDatabase": "Server=<IP LOCAL>;Database=DBBootcamp;User ID=<DB USER>;Password=<DB PASSWORD>"
-    }
+    "DefaultConnection": "Server=<IP>;Database=BootCampDB;User ID=<DB USER>;Password=<DB PASSWORD>"
+},
 ```
-* Substituir los valores entre <> por los suyos locales *
-#### 4. URLs endpoints.
+* Substituir los valores entre <> por los suyos *
 
+#### 4. URLs endpoints.
 ```
 Categorias
 GET       /api/Categorias
