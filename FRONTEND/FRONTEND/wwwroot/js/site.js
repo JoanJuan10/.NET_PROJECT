@@ -33,7 +33,6 @@ function callToken() {
     });
 }
 function showDetails(e) {
-
     localStorage.setItem("id", this.dataItem($(e.currentTarget).closest("tr")).id);
     document.getElementById("fichaTrabajador").submit();
 }
@@ -74,7 +73,6 @@ function getTrabajadores(token) {
                         contentType: 'application/x-www-form-urlencoded',
 
                         success: function (categorias) {
-                            console.log(categorias);
                             $.ajax({
                                 method: "GET",
                                 url: "https://localhost:44311/api/Cuerpos",
@@ -87,7 +85,6 @@ function getTrabajadores(token) {
                                 contentType: 'application/x-www-form-urlencoded',
 
                                 success: function (cuerpos) {
-                                    console.log(cuerpos);
                                     $.ajax({
                                         method: "GET",
                                         url: "https://localhost:44311/api/TProvis",
@@ -99,110 +96,133 @@ function getTrabajadores(token) {
                                         },
                                         contentType: 'application/x-www-form-urlencoded',
                                         success: function (tprovis) {
-                                            console.log(tprovis);
-                                            var data = [];
-                                            $.each(trabajadores, function (key, val) {
-                                                $.each(empresas, function (keyEmpresa, valEmpresa) {
-                                                    if (val.idEmpresa == valEmpresa.idEmpresa) {
 
-                                                        $.each(categorias, function (keyCategoria, valCategoria) {
-                                                            if (val.idCategoria == valCategoria.categori) {
-                                                                $.each(cuerpos, function (keyCuerpos, valCuerpos) {
-                                                                    if (val.cuerpo == valCuerpos.cuerpo) {
-                                                                        $.each(tprovis, function (keyTprovis, valTprovis) {
+                                            $.ajax({
+                                                method: "GET",
+                                                url: "https://localhost:44311/api/NivOrgs",
+                                                dataType: "json",
+                                                headers: {
 
-
-                                                                            if (val.tProvis == valTprovis.tProvis1) {
-                                                                                data.push({
-                                                                                    id: val.id,
-                                                                                    nombre: val.nombre + " " + val.apellido1 + " " + val.apellido2,
-                                                                                    tp: valTprovis.idClasePer,
-                                                                                    tprovis: valTprovis.descrip,
-                                                                                    empresa: valEmpresa.dEmpresa,
-                                                                                    grupo: val.grupo,
-                                                                                    categoria: valCategoria.descrip,
-                                                                                    cuerpo: valCuerpos.descrip,
+                                                    'Accept': 'application/json',
+                                                    'Authorization': 'Bearer ' + token
+                                                },
+                                                contentType: 'application/x-www-form-urlencoded',
+                                                success: function (nivOrgs) {
+                                                    var data = [];
+                                                    $.each(trabajadores, function (key, val) {
+                                                        $.each(empresas, function (keyEmpresa, valEmpresa) {
+                                                            if (val.idEmpresa == valEmpresa.idEmpresa) {
+                                                                $.each(categorias, function (keyCategoria, valCategoria) {
+                                                                    if (val.idCategoria == valCategoria.categori) {
+                                                                        $.each(cuerpos, function (keyCuerpos, valCuerpos) {
+                                                                            if (val.cuerpo == valCuerpos.cuerpo) {
+                                                                                $.each(tprovis, function (keyTprovis, valTprovis) {
+                                                                                    if (val.tProvis == valTprovis.tProvis1) {
+                                                                                        $.each(nivOrgs, function (keyNivOrgs, valNivOrgs) {
+                                                                                            if (val.nivOrgId == valNivOrgs.id) {
+                                                                                                data.push({
+                                                                                                    id: val.id,
+                                                                                                    nombre: val.nombre + " " + val.apellido1 + " " + val.apellido2,
+                                                                                                    tp: valTprovis.idClasePer,
+                                                                                                    tprovis: valTprovis.descrip,
+                                                                                                    empresa: valEmpresa.dEmpresa,
+                                                                                                    grupo: val.grupo,
+                                                                                                    categoria: valCategoria.descrip,
+                                                                                                    cuerpo: valCuerpos.descrip,
+                                                                                                    nivel: valNivOrgs.dNivel
+                                                                                                });
+                                                                                            }
+                                                                                        });
+                                                                                    }
                                                                                 });
-
                                                                             }
                                                                         });
                                                                     }
                                                                 });
                                                             }
                                                         });
-                                                    }
-                                                });
-                                            });
+                                                    });
 
-                                            var gridDataSource = new kendo.data.DataSource({
-                                                data: data,
-                                                schema: {
-                                                    model: {
-                                                        fields: {
-                                                            id: { type: "int" },
-                                                            nombre: { type: "string" },
-                                                            tp: { type: "string" },
-                                                            tprovis: { type: "string" },
-                                                            empresa: { type: "string" },
-                                                            grupo: { type: "string" },
-                                                            cuerpo: { type: "string" },
-                                                            categoria: { type: "string" },
-
+                                                    var gridDataSource = new kendo.data.DataSource({
+                                                        data: data,
+                                                        schema: {
+                                                            model: {
+                                                                fields: {
+                                                                    id: { type: "int" },
+                                                                    nombre: { type: "string" },
+                                                                    tp: { type: "string" },
+                                                                    tprovis: { type: "string" },
+                                                                    empresa: { type: "string" },
+                                                                    grupo: { type: "string" },
+                                                                    cuerpo: { type: "string" },
+                                                                    categoria: { type: "string" },
+                                                                    nivel: { type: "string" }
+                                                                }
+                                                            }
+                                                        },
+                                                        pageSize: 17,
+                                                        sort: {
+                                                            field: "nombre",
+                                                            dir: "desc"
                                                         }
-                                                    }
+                                                    });
+
+                                                    $("#trabajadoresGrid").kendoGrid({
+                                                        dataSource: gridDataSource,
+                                                        height: 700,
+                                                        scrollable: true,
+                                                        pageable: true,
+                                                        sortable: true,
+                                                        filterable: true,
+                                                        columns: [{
+                                                            field: "id",
+                                                            title: "Cod.",
+                                                            width: 80
+                                                        }, {
+                                                            field: "nombre",
+                                                            title: "Nombre",
+                                                            width: 120,
+                                                        }, {
+                                                            field: "tp",
+                                                            title: "TP",
+                                                            width: 50,
+                                                        }, {
+                                                            field: "tprovis",
+                                                            title: "Tipo de Empleado",
+                                                            width: 150,
+                                                        }, {
+                                                            field: "empresa",
+                                                            title: "Empresa",
+                                                            width: 100,
+                                                        }, {
+                                                            field: "grupo",
+                                                            title: "Grupo",
+                                                            width: 60,
+                                                        }, {
+                                                            field: "cuerpo",
+                                                            title: "Cuerpo",
+                                                            width: 80,
+                                                        }, {
+                                                            field: "categoria",
+                                                            title: "Categoria / Escala",
+                                                            width: 80,
+                                                        }, {
+                                                            field: "nivel",
+                                                            title: "Unidad organizativa",
+                                                            width: 80
+                                                        }, {
+                                                            command: [
+                                                                { text: 'Ficha', click: showDetails, iconClass: 'fa fa-edit', className: 'btn-grid' },
+                                                                { text: 'Eliminar', iconClass: 'fa fa-trash', className: 'btn-grid-delete' }
+                                                            ],
+                                                            title: "Opciones",
+                                                            width: 120,
+                                                        }]
+                                                    });
                                                 },
-                                                pageSize: 17,
-                                                sort: {
-                                                    field: "nombre",
-                                                    dir: "desc"
+                                                error: function (error) {
+                                                    console.log(error);
                                                 }
-                                            });
-
-                                            $("#trabajadoresGrid").kendoGrid({
-                                                dataSource: gridDataSource,
-                                                height: 700,
-                                                scrollable: true,
-                                                pageable: true,
-                                                sortable: true,
-                                                filterable: true,
-                                                columns: [{
-                                                    field: "id",
-                                                    title: "Cod.",
-                                                    width: 80
-                                                }, {
-                                                    field: "nombre",
-                                                    title: "Nombre",
-                                                    width: 160,
-                                                }, {
-                                                    field: "tp",
-                                                    title: "TP",
-                                                    width: 50,
-                                                }, {
-                                                    field: "tprovis",
-                                                    title: "Tipo de Empleado",
-                                                    width: 150,
-                                                }, {
-                                                    field: "empresa",
-                                                    title: "Empresa",
-                                                    width: 100,
-                                                }, {
-                                                    field: "grupo",
-                                                    title: "Grupo",
-                                                    width: 60,
-                                                }, {
-                                                    field: "cuerpo",
-                                                    title: "Cuerpo",
-                                                    width: 80,
-                                                }, {
-                                                    field: "categoria",
-                                                    title: "Categoria / Escala",
-                                                    width: 80,
-                                                }, {
-                                                    command: { text: 'Editar', click: showDetails },
-                                                    title: "Opciones",
-                                                    width: 80,
-
-                                                }]
                                             });
                                         },
                                         error: function (error) {
@@ -242,9 +262,9 @@ function getUnidadesOrganizativas(token) {
         },
         contentType: 'application/x-www-form-urlencoded',
         success: function (data) {
-            console.log(data);
+            var unidades = [];
             for (let unidad of data) {
-                if (unidad.categNivel === "861") {
+                if (unidades.indexOf(unidad.dNivel) === -1) {
                     let element = `
                         <li>
                             ${unidad.dNivel}
@@ -252,11 +272,17 @@ function getUnidadesOrganizativas(token) {
                     `;
 
                     $('.table-filter').append(element);
+
+                    unidades.push(unidad.dNivel);
                 }
             }
 
             $('.table-filter li').click(function () {
-                alert('funciona');
+                var filter = $(this).text().trim();
+
+                var grid = $("#trabajadoresGrid").data("kendoGrid");
+
+                grid.dataSource.filter({ field: "nivel", operator: "eq", value: filter });
             });
         }
     });
