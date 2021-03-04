@@ -49,7 +49,7 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTrabajadores(string id, Trabajadores trabajadores)
         {
-            if (id != trabajadores.IdEmpresa)
+            if (id != trabajadores.Id.ToString())
             {
                 return BadRequest();
             }
