@@ -11,7 +11,6 @@
         T.funciones = txt;
 
         console.log(T);
-
         $.ajax({
             type: "PUT",
             url: "https://localhost:44311/api/Trabajadores/" + T.id,
