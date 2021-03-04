@@ -56,11 +56,14 @@ tr:hover {
 
 .table-filter {
     list-style-type: none;
+    height: 700px;
+    overflow: auto;
 }
 
 .table-filter > li {
     color: lightseagreen;
     font-weight: 600;
+    font-size: 14px;
 
     border: 1px solid lightgray;
 
@@ -73,3 +76,5 @@ tr:hover {
         border: 1px solid lightseagreen;
         background-color: lightseagreen;
     }
+
+    /* END Unidad organizativa*/
