@@ -33,7 +33,6 @@ function callToken() {
     });
 }
 function showDetails(e) {
-
     localStorage.setItem("id", this.dataItem($(e.currentTarget).closest("tr")).id);
     document.getElementById("fichaTrabajador").submit();
 }
@@ -182,7 +181,7 @@ function getTrabajadores(token) {
                                                         }, {
                                                             field: "nombre",
                                                             title: "Nombre",
-                                                            width: 160,
+                                                            width: 140,
                                                         }, {
                                                             field: "tp",
                                                             title: "TP",
@@ -212,9 +211,11 @@ function getTrabajadores(token) {
                                                             title: "Unidad organizativa",
                                                             width: 80
                                                         }, {
-                                                            command: { text: 'Editar', click: showDetails },
+                                                                command: { text: 'Editar', click: showDetails, iconClass: 'fa fa-edit btn-grid' },
+
+                                                            //template: "<i class='fa fa-edit' onclick='showDetails($(this))'></i>",
                                                             title: "Opciones",
-                                                            width: 80,
+                                                            width: 100,
                                                         }]
                                                     });
                                                 },

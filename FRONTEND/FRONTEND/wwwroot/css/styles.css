@@ -92,3 +92,19 @@ tr:hover {
         background-image: -webkit-linear-gradient(top, #212185 0%,#20b2aa 100%);
     }
     /* END Unidad organizativa*/
+
+.k-command-cell > .k-button {
+    color: white;
+    background-color: lightseagreen;
+    background-image: none;
+    border: none;
+    opacity: 0.7;
+}
+
+    .k-command-cell > .k-button:hover {
+        color: white;
+        background-color: lightseagreen;
+        background-image: none;
+        border: none;
+        opacity: 1;
+    }
