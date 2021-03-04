@@ -33,7 +33,6 @@ function callToken() {
     });
 }
 function showDetails(e) {
-
     localStorage.setItem("id", this.dataItem($(e.currentTarget).closest("tr")).id);
     document.getElementById("fichaTrabajador").submit();
 }
@@ -182,7 +181,7 @@ function getTrabajadores(token) {
                                                         }, {
                                                             field: "nombre",
                                                             title: "Nombre",
-                                                            width: 160,
+                                                            width: 120,
                                                         }, {
                                                             field: "tp",
                                                             title: "TP",
@@ -212,9 +211,12 @@ function getTrabajadores(token) {
                                                             title: "Unidad organizativa",
                                                             width: 80
                                                         }, {
-                                                            command: { text: 'Editar', click: showDetails },
+                                                            command: [
+                                                                { text: 'Ficha', click: showDetails, iconClass: 'fa fa-edit', className: 'btn-grid' },
+                                                                { text: 'Eliminar', iconClass: 'fa fa-trash', className: 'btn-grid-delete' }
+                                                            ],
                                                             title: "Opciones",
-                                                            width: 80,
+                                                            width: 120,
                                                         }]
                                                     });
                                                 },
@@ -260,9 +262,9 @@ function getUnidadesOrganizativas(token) {
         },
         contentType: 'application/x-www-form-urlencoded',
         success: function (data) {
-            console.log(data);
+            var unidades = [];
             for (let unidad of data) {
-                
+                if (unidades.indexOf(unidad.dNivel) === -1) {
                     let element = `
                         <li>
                             ${unidad.dNivel}
@@ -270,7 +272,9 @@ function getUnidadesOrganizativas(token) {
                     `;
 
                     $('.table-filter').append(element);
-                
+
+                    unidades.push(unidad.dNivel);
+                }
             }
 
             $('.table-filter li').click(function () {
