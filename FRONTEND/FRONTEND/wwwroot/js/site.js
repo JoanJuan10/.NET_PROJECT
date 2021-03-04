@@ -260,9 +260,9 @@ function getUnidadesOrganizativas(token) {
         },
         contentType: 'application/x-www-form-urlencoded',
         success: function (data) {
-            console.log(data);
+            var unidades = [];
             for (let unidad of data) {
-                
+                if (unidades.indexOf(unidad.dNivel) === -1) {
                     let element = `
                         <li>
                             ${unidad.dNivel}
@@ -270,7 +270,9 @@ function getUnidadesOrganizativas(token) {
                     `;
 
                     $('.table-filter').append(element);
-                
+
+                    unidades.push(unidad.dNivel);
+                }                
             }
 
             $('.table-filter li').click(function () {
