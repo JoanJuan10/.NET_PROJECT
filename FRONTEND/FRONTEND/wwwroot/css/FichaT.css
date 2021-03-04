@@ -35,17 +35,17 @@
     transition: 2s;
 }
 
-    .active, .FichaT:hover {
-        background-color: rgb(174, 211, 236);
-    }
+.active, .FichaT:hover {
+    background-color: rgb(174, 211, 236);
+}
 
-    .FichaT:after {
-        content: '\2193';
-        color: rgb(42, 96, 211);
-        font-weight: bold;
-        float: right;
-        margin-left: 5px;
-    }
+.FichaT:after {
+    content: '\2193';
+    color: rgb(42, 96, 211);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
 
 .active:after {
     content: "\2191";
@@ -59,3 +59,7 @@
     transition: max-height 0.3s ease-out;
     border:none;
 }
+#Funciones, #Idiomas, #Titulaciones, #Formacion, #Misiones {
+    white-space: pre;
+}
+

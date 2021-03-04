@@ -5,18 +5,125 @@
     var T;
 
     $("#Funciones").blur(function () {
-        alert('funciona');
-        T.funciones = $("#Funciones").text();
+        var txt = $("#Funciones").text();
+        txt.replaceAll( /\n/g, '<br>');
+
+        T.funciones = txt;
 
         console.log(T);
 
         $.ajax({
-            method: "PUT",
+            type: "PUT",
             url: "https://localhost:44311/api/Trabajadores/" + T.id,
             dataType: "json",
-            data: T,
+            data: JSON.stringify(T),
             headers: {
                 'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            },
+            contentType: 'application/json',
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    $("#Misiones").blur(function () {
+
+        var txt = $("#Misiones").text();
+        txt.replaceAll( /\n/g, '<br>');
+
+        T.misiones = txt;
+
+        console.log(T);
+
+        $.ajax({
+            type: "PUT",
+            url: "https://localhost:44311/api/Trabajadores/" + T.id,
+            dataType: "json",
+            data: JSON.stringify(T),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            },
+            contentType: 'application/json',
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    $("#Titulaciones").blur(function () {
+
+        var txt = $("#Titulaciones").text();
+        txt.replaceAll( /\n/g, '<br>');
+        
+        T.titulaciones = txt;
+
+        console.log(T);
+
+        $.ajax({
+            type: "PUT",
+            url: "https://localhost:44311/api/Trabajadores/" + T.id,
+            dataType: "json",
+            data: JSON.stringify(T),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            },
+            contentType: 'application/json',
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    $("#Formacion").blur(function () {
+
+        var txt = $("#Formacion").text();
+        txt.replaceAll( /\n/g, '<br>');
+
+        T.formacion = txt;
+
+        console.log(T);
+
+        $.ajax({
+            type: "PUT",
+            url: "https://localhost:44311/api/Trabajadores/" + T.id,
+            dataType: "json",
+            data: JSON.stringify(T),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            },
+            contentType: 'application/json',
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    $("#Idiomas").blur(function () {
+
+        var txt = $("#Idiomas").text();
+        txt.replaceAll( /\n/g, '<br>');
+
+        T.idiomas = txt;
+
+        console.log(T);
+
+        $.ajax({
+            type: "PUT",
+            url: "https://localhost:44311/api/Trabajadores/" + T.id,
+            dataType: "json",
+            data: JSON.stringify(T),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
             },
             contentType: 'application/json',
@@ -26,9 +133,6 @@
         });
     });
  
-
-
-
 
     $.ajax({
         method: "GET",
