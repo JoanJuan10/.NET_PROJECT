@@ -3,27 +3,39 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-2">
-            <ul class="table-filter">
-                <li>
-                    PEPE
-                </li>
-            </ul>
+    <nav id="navSecundario" class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-around">
+        <a class="navbar-brand" href="#"><i class="fa-bars fa"></i>Trabajadores</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <button class="btn btn-outline-primary btn-sm" type="submit" style="margin-right: 5px;">Grupo Castilla (No tocar)</button>
+            <button class="btn btn-outline-primary btn-sm" type="submit">@DateTime.Now</button>
         </div>
-        <div class="col-10">
-            <div id="trabajadoresGrid"></div>
-            <form class="form-inline d-none" id="fichaTrabajador" asp-area="" asp-controller="Paginas" asp-action="FichaTrabajador">
-                <button type="submit" class="nav-link btn btn-link text-dark d-none"></button>
-            </form>
+    </nav>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Navbar</a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <ul class="table-filter"></ul>
+            </div>
+            <div class="col-10">
+                <div id="trabajadoresGrid"></div>
+                <form class="form-inline d-none" id="fichaTrabajador" asp-area="" asp-controller="Paginas" asp-action="FichaTrabajador">
+                    <button type="submit" class="nav-link btn btn-link text-dark d-none"></button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-@section Scripts {
-    <script>
-        callToken();
-    </script>
-    
-}
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                callToken();
+            });
+        </script>
+    }
