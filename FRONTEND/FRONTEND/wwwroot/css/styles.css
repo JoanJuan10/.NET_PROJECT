@@ -109,3 +109,15 @@ tr:hover {
         border: none !important;
         opacity: 0.3 !important;
     }
+
+/* Barra de navegación secundaria */
+
+#navSecundario {
+    margin-bottom: 3em;
+    height: 40px;
+    border-bottom: 1px solid gray;
+}
+
+    #navSecundario .fa-bars {
+        margin-right: 10px;
+    }
