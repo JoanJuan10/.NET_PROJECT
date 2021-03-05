@@ -14,10 +14,10 @@
 #sidebarToggle, .icosSuperiores {
     font-size: 25px;
 }
-
-#Clogo {
-    margin-left: 10px;
+#sidebarToggle{
+    margin-left: 1em;
 }
+
 
 .menu-icon {
     width: 35px;

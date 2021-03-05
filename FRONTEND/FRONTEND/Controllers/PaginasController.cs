@@ -16,5 +16,9 @@ namespace FRONTEND.Controllers
         {
             return View();
         }
+        public IActionResult MensajesTrabajador()
+        {
+            return View();
+        }
     }
 }
