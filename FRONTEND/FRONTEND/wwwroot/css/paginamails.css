@@ -24,11 +24,17 @@ font-size: 20px;
     margin-bottom: 5px;
 }
 #hijoPrincipal{
+    padding-bottom:1em;
     padding-right: 2%;
     padding-left: 2%;
 }
 #hijoCorreoNuevo{
     padding-top:1em;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+#hijoMailRecibido{
+    padding-top: 2%;
     padding-left: 2%;
     padding-right: 2%;
 }

@@ -8,11 +8,11 @@
 
     <aside class="main-sidebar">
         <div class="content">
-            <span class="new-btn new-Mail hovBarra" onclick="MostrarMail()">Crear correo</span>
+            <span class="new-btn new-Mail hovBarra" onclick="MostrarMailNuevo()">Crear correo</span>
             <div id="navigationTreeView" data-role="treeview" class="k-widget k-treeview" tabindex="0" role="tree" aria-activedescendant="navigationTreeView_tv_active">
                 <ul class="k-group k-treeview-lines">
                     <li role="treeitem" class="k-item">
-                        <div class="k-top hovBarra" onclick="MostrarRecibidos()">
+                        <div class="k-top hovBarra" onclick="MostrarBandejaEntrada()">
                             <span class="mailSections">
                                 <span class="folder-name manoCursor">Bandeja de entrada</span>
                             </span>
@@ -259,7 +259,7 @@
                                 <col>
                                 <col>
                             </colgroup>
-                            <tbody id="hovRecibidos" class="manoCursor" role="rowgroup">
+                            <tbody id="hovRecibidos" class="manoCursor" onclick="MostrarMailRecibido()" role="rowgroup">
                                 <tr class="k-master-row" role="row">
                                     <td class="" role="gridcell">
                                         <input type="checkbox" class="chkbx">
@@ -459,6 +459,40 @@
                 </div>
             </div>
 
+            <div id="hijoMailRecibido" style="display:none">
+
+                <div class="mail-details">
+                    <div class="mail-details-header">
+                        <h2 class="mail-subject">RE: RE: IE Freeze after iisreset</h2>
+                        <p class="mail-date">Mon Jul 06 2015 06:18:00 GMT+0200 (hora de verano de Europa central)</p>
+                        <p class="mail-sender-wrapper">
+                            <label>To:</label>
+                            <span class="mail-sender">Antonio Morandi; Ricardo Chirra; Vasil Reav</span>
+                        </p>
+                    </div>
+                    <p class="mail-text">
+                        Hi, thank you for your answer.<br>
+                        <br>
+                        In a normal situation, we are uploading files and after that we are doing a postback to force the callback event in the backend. When the file size is over 1MB the progress bar is near the 100%, but that is not the issue.<br>
+                        <br>
+                        When the IE process hangs, the file is not uploaded. Simply the process hangs and the unique way to recover is to kill the process in the Task Manager.<br>
+                        <br>
+                        The IIS reset shouldn't occur in a normal situation, but we are using the Telerik control with Sharepoint, and for example if we are deploying a new version of some sharepoint package, an iisreset will be done.&nbsp;<br>
+                        Actually, we have found the bug that way.<br>
+                        <br>
+                        An hypothetical case:<br>
+                        <br>
+                        * A client is visiting the site and he has the browser opened in the page to use the control, but he doesn't close the browser.<br>
+                        <br>
+                        * We schedule a deploy to the production environment and after do it, we do an iisreset.<br>
+                        <br>
+                        * A time after, the client try to upload a file in the same browser instance, in this case, the IE process will hang and the user will have to killl the IE process.<br>
+                        <br>
+                        King regards
+                    </p>
+                </div>
+
+            </div>
 
             <div id="hijoCorreoNuevo" style="display: none;">
 
