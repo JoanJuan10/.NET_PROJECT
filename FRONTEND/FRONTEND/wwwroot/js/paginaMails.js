@@ -42,7 +42,7 @@ function getMailTrabajadores(token) {
                         </div>
                     `;
 
-                    $('.contacts-list').append(element);
+                    $('.list-view').append(element);
 
                     trabajadores.push(trabajador.dNivel);
                 }
