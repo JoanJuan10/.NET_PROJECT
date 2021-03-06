@@ -287,18 +287,3 @@ function getUnidadesOrganizativas(token) {
         }
     });
 }
-function Reloj() {
-    momentoActual = new Date()
-    hora = momentoActual.getHours()
-    minuto = momentoActual.getMinutes()
-    segundo = momentoActual.getSeconds()
-
-    horaImprimible = hora + " : " + minuto + " : " + segundo
-
-    document.form_reloj.reloj.value = horaImprimible
-
-    //La función se tendrá que llamar así misma para que sea dinámica, 
-    //de esta forma:
-
-    setTimeout(Reloj, 1000)
-}
