@@ -3,6 +3,9 @@
 /* VIKSEN----JOAN----IAGO----ADRIAN */
 
 /* pagina principal */
+body {
+    background-color: rgb(235,235,235);
+}
 #superior {
     background: linear-gradient(to right, rgb(23, 23, 104), rgb(75, 75, 255));
 }
