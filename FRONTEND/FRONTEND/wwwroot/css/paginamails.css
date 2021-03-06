@@ -16,6 +16,7 @@
 margin-left: 1em;
 }
 .option{
+margin-right:0;
 font-size: 20px;
     color: rgb(195,195,195);
 }
@@ -23,10 +24,17 @@ font-size: 20px;
     margin-bottom: 5px;
 }
 #hijoPrincipal{
+    padding-bottom:1em;
     padding-right: 2%;
     padding-left: 2%;
 }
 #hijoCorreoNuevo{
+    padding-top:1em;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+#hijoMailRecibido{
+    padding-top: 2%;
     padding-left: 2%;
     padding-right: 2%;
 }
@@ -39,6 +47,10 @@ font-size: 20px;
 }
 #hovRecibidos tr:hover {
     background-color: lightseagreen;
+}
+.recibidos{
+    overflow:auto;
+    height: 715px;
 }
 .manoCursor:hover{
     cursor: pointer;
