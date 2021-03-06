@@ -4,19 +4,12 @@
 @inject UserManager<IdentityUser> UserManager
 
     <nav id="navSecundario" class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-around">
-        <a class="navbar-brand" href="#"><i class="fa-bars fa"></i>Trabajadores</a>
-
+        <i class="fa-bars fa"></i><a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Trabajadores</a>
+        <form></form>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <button class="btn btn-outline-primary btn-sm" type="submit" style="margin-right: 5px;">Grupo Castilla (No tocar)</button>
             <button class="btn btn-outline-primary btn-sm" type="submit">@DateTime.Now</button>
         </div>
-    </nav>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">Navbar</a>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </nav>
     <div class="container-fluid">
         <div class="row">
