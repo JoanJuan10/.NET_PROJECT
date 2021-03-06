@@ -1,6 +1,10 @@
 ﻿
 /* IAGO - VIKSEN - JOAN */
 
+#MailPage{
+    padding-top: 2em;
+    padding-right: 1em;
+}
 .padre{
     display:inline-flex;
 }
@@ -46,6 +50,15 @@ font-size: 20px;
     padding: 15px;
     margin-right: 50px;
 }
+.mailOptions {
+    color: rgb(142, 195, 238);
+}
+.toolbar{
+    margin-bottom:1em;
+}
+.searchbox{
+    margin-left: 1.5em;
+}
 
 /* FIN NOSOTROS */
 
@@ -75,8 +88,11 @@ font-size: 20px;
 
 /* List view - default */
 .list-view {
-  flex-direction: row; }
+  flex-direction: row; 
+  margin-left: 1em;
+}
   .list-view .list-view-inner {
+     
     flex: 1;
     overflow: auto;
     border-right: 1px solid #ebebeb;
@@ -300,15 +316,14 @@ body>div:last-child{ flex:none }
 }
 .main-content{
     display:flex;
-    flex:1;
-    min-height:100%;
-    overflow:auto
+    overflow:auto;
+    
 }
 .main-section{
     flex:1;
     position:relative;
     background:#fff;
-    box-shadow:0 0 4px 2px rgba(0,0,0,.06)
+    box-shadow:0 0 4px 2px rgba(0,0,0,.06);
 }
 .main-section .toolbar{ border-bottom:1px solid #ebebeb }
 .main-section .toolbar .left{ float:left }
@@ -326,7 +341,7 @@ body>div:last-child{ flex:none }
     padding:.71em
 }
 .main-section .toolbar .btn.iconOnly:before{
-    font:16px WebComponentsIcons;
+    font:15px WebComponentsIcons;
     display:inline-block
 }
 .main-section .toolbar .btn.iconOnly.selected{ color:#1e8edf }
@@ -352,7 +367,6 @@ body>div:last-child{ flex:none }
 .inner-section{
     display:flex;
     flex-direction:column;
-    height:calc(100% - 3em);
     overflow:auto
 }
 .searchbox{
