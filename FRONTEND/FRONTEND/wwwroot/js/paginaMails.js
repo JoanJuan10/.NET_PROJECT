@@ -22,3 +22,31 @@ function MostrarRecibidos() {
     }
 }
 
+function getMailTrabajadores(token) {
+    $.ajax({
+        method: "GET",
+        url: "https://localhost:44311/api/Trabajadores",
+        dataType: "json",
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        contentType: 'application/x-www-form-urlencoded',
+        success: function (data) {
+            var trabajadores = [];
+            for (let trabajador of data) {
+                if (trabajadores.indexOf(trabajador.dNivel) === -1) {
+                    let element = `
+                        <div>
+                            ${trabajador.dNivel}
+                        </div>
+                    `;
+
+                    $('.contacts-list').append(element);
+
+                    trabajadores.push(trabajador.dNivel);
+                }
+            }
+        }
+    });
+}

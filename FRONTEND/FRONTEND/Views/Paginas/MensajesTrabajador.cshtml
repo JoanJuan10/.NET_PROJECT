@@ -52,7 +52,7 @@
                         <span class="k-link k-menu-link">Responder</span>
                     </li>
                     <li class="k-item k-menu-item" id="read" operation="read" role="menuitem">
-                        <span class="k-link k-menu-link mailOptions">Marcar como leído</span>
+                        <span class="k-link k-menu-link">Marcar como leído</span>
                     </li>
                     <li class="k-item k-menu-item" id="Deleted" operation="moveDelete" role="menuitem">
                         <span class="k-link k-menu-link">Borrar</span>
@@ -65,15 +65,11 @@
 
 
         <div class="padre">
-            <div class="list-view">
+            <div class="list-view" >
                 <div class="contacts-list k-widget k-listview k-listview-bordered k-selectable k-scrollable" id="mainWidget" data-role="listview" role="listbox">
 
                     <div class="contact-view k-widget" role="option" aria-selected="false">
                         <div class="header">
-                            <span class="hidden-email correo" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
                             <span class="name">Ana Rodriguez</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
@@ -88,11 +84,59 @@
 
                     <div class="contact-view k-widget" role="option" aria-selected="false">
                         <div class="header">
-                            <span class="hidden-email correo" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
                             <span class="name">Ana Rodriguez</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="name">Ana Rodriguez</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="name">Ana Rodriguez</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="name">Ana Rodriguez</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="name">Ana Rodriguez Sanchez</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
                                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
@@ -106,11 +150,7 @@
 
                     <div class="contact-view k-widget" role="option" aria-selected="false">
                         <div class="header">
-                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
-                            <span class="name">Ana Rodriguez</span>
+                            <span class="name">Ana Rodriguez Fernandez</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
                                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
@@ -124,10 +164,6 @@
 
                     <div class="contact-view k-widget" role="option" aria-selected="false">
                         <div class="header">
-                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
                             <span class="name">Maria Fernandez</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
@@ -141,14 +177,10 @@
                     </div>
                     <div class="contact-view k-widget" role="option" aria-selected="false">
                         <div class="header">
-                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
                             <span class="name">Ana Rodriguez</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
-                                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
                                 </div>
                                 <div class="option manoCursor">
                                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
@@ -160,10 +192,6 @@
 
                     <div class="contact-view k-widget" role="option" aria-selected="false">
                         <div class="header">
-                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
                             <span class="name">Jaime Gonzalez</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
@@ -178,10 +206,6 @@
 
                     <div class="contact-view k-widget" role="option" aria-selected="false">
                         <div class="header">
-                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
                             <span class="name">Ana Rodriguez</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
@@ -196,10 +220,6 @@
 
                     <div class="contact-view k-widget" role="option" aria-selected="false">
                         <div class="header">
-                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
                             <span class="name">Juana de arco</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
@@ -213,10 +233,6 @@
                     </div>
                     <div class="contact-view k-widget" role="option" aria-selected="true">
                         <div class="header">
-                            <span class="email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
                             <span class="name">Juan Caspe</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
@@ -230,10 +246,6 @@
                     </div>
                     <div class="contact-view k-widget" role="option" aria-selected="false">
                         <div class="header">
-                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
                             <span class="name">Julio Silvestre</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
@@ -247,10 +259,6 @@
                     </div>
                     <div class="contact-view k-widget" role="option" aria-selected="false">
                         <div class="header">
-                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
                             <span class="name">Luisa Esposito</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
@@ -264,10 +272,6 @@
                     </div>
                     <div class="contact-view k-widget" role="option" aria-selected="false">
                         <div class="header">
-                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
-                            <span class="image-wrapper">
-                                <i class="fas fa-portrait icoUser"></i>
-                            </span>
                             <span class="name">Soraya Manriquez de Sousa</span>
                             <div class="buttons">
                                 <div class="option manoCursor">
@@ -376,15 +380,16 @@
                             </div>
                         </div>
                     </div>
-
-                    <table cellspacing="0" cellpadding="0" class="k-widget k-editor k-editor-widget" role="presentation" style="height: 100%;">
+                    <br />
+                    <label class="form-label">Mensaje:</label>
+                    <table cellspacing="0" cellpadding="0" class="k-widget k-editor k-editor-widget" role="presentation" style="height: 510px;">
                         <tbody>
                             <tr role="presentation">
                                 <td class="k-editor-toolbar-wrap" role="presentation">
                                     <ul class="k-toolbar k-editor-toolbar" role="toolbar" aria-controls="newMail" data-role="editortoolbar">
                                         <li class="k-tool-group" role="presentation">
                                             <span class="k-editor-dropdown k-group-start k-group-end">
-                                                <span title="Format" class="k-widget k-dropdown k-editor-widget" unselectable="on" role="listbox" aria-haspopup="listbox" aria-expanded="false" tabindex="0" aria-owns="d916d0ba-d0e1-4fa6-a21f-4722ea6bef9f_listbox" aria-label="Format" aria-live="polite" aria-disabled="false" aria-readonly="false" aria-busy="false" style="width: 110px;" aria-activedescendant="g03f6146-134f-4e33-a195-172f1649c3c8">
+                                                <span title="Format" class="k-widget k-dropdown k-editor-widget" unselectable="on" role="listbox" aria-expanded="false" tabindex="0" aria-owns="d916d0ba-d0e1-4fa6-a21f-4722ea6bef9f_listbox" aria-label="Format" aria-live="polite" aria-disabled="false" aria-readonly="false" aria-busy="false" style="width: 110px;" aria-activedescendant="g03f6146-134f-4e33-a195-172f1649c3c8">
                                                     <span unselectable="on" class="k-dropdown-wrap k-state-default">
                                                         <span id="g03f6146-134f-4e33-a195-172f1649c3c8" unselectable="on" role="option" aria-selected="true" class="k-input">Format</span>
                                                         <span unselectable="on" class="k-select" aria-label="select">
@@ -495,9 +500,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <script>
-                        kendo.syncReady(function () { jQuery("#newMail").kendoEditor({ "tools": [{ "name": "formatting" }, { "name": "bold" }, { "name": "italic" }, { "name": "underline" }, { "name": "justifyLeft" }, { "name": "justifyCenter" }, { "name": "justifyRight" }, { "name": "copyFormat" }, { "name": "applyFormat" }, { "name": "insertUnorderedList" }, { "name": "insertOrderedList" }, { "name": "indent" }, { "name": "outdent" }, { "name": "createLink" }, { "name": "unlink" }, { "name": "insertImage" }, { "name": "tableWizard" }, { "name": "createTable" }, { "name": "addColumnLeft" }, { "name": "addColumnRight" }, { "name": "addRowAbove" }, { "name": "addRowBelow" }, { "name": "deleteRow" }, { "name": "deleteColumn" }, { "name": "mergeCellsHorizontally" }, { "name": "mergeCellsVertically" }, { "name": "splitCellHorizontally" }, { "name": "splitCellVertically" }, { "name": "tableAlignLeft" }, { "name": "tableAlignCenter" }, { "name": "tableAlignRight" }] }); });
-                    </script>
                 </div>
 
 
