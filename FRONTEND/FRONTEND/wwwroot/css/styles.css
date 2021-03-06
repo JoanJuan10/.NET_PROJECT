@@ -62,7 +62,7 @@ tr:hover {
         .table-filter > li:hover {
             color: white;
             border: 1px solid lightseagreen;
-            background-color: lightseagreen;
+            background: linear-gradient(to right,#212185 0%,#20b2aa 100%);
         }
 
     .table-filter::-webkit-scrollbar-track {
