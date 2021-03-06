@@ -74,15 +74,18 @@ font-size: 20px;
     padding: 10px;
 }
 
-    .contacts-list > div:hover, div.option:hover{
+    .contacts-list > div:hover {
         color: white;
-        background-color: lightseagreen;
+        background: linear-gradient(to right,#212185 0%,#20b2aa 100%);
     }
+div.option:hover{
+    color:white;
+}
 
-    .contacts-list::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-        background-color: #F5F5F5;
-    }
+.contacts-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
 
 .contacts-list::-webkit-scrollbar {
     width: 5px;
