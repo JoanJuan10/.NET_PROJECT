@@ -3,6 +3,9 @@
 /* VIKSEN----JOAN----IAGO----ADRIAN */
 
 /* pagina principal */
+body {
+    background-color: rgb(235,235,235);
+}
 #superior {
     background: linear-gradient(to right, rgb(23, 23, 104), rgb(75, 75, 255));
 }
@@ -14,10 +17,10 @@
 #sidebarToggle, .icosSuperiores {
     font-size: 25px;
 }
-
-#Clogo {
-    margin-left: 10px;
+#sidebarToggle{
+    margin-left: 1em;
 }
+
 
 .menu-icon {
     width: 35px;
@@ -108,4 +111,16 @@ tr:hover {
         background-image: none !important;
         border: none !important;
         opacity: 0.3 !important;
+    }
+
+/* Barra de navegación secundaria */
+
+#navSecundario {
+    margin-bottom: 3em;
+    height: 40px;
+    border-bottom: 1px solid gray;
+}
+
+    #navSecundario .fa-bars {
+        margin-right: 10px;
     }

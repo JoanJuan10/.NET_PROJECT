@@ -1,5 +1,516 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿<link rel="stylesheet" href="~/css/paginamails.css" />
+<link href="https://kendo.cdn.telerik.com/2021.1.119/styles/kendo.common.min.css" rel="stylesheet">
+<link href="https://kendo.cdn.telerik.com/2021.1.119/styles/kendo.metro.min.css" rel="stylesheet">
+
+
+
+<content id="MailPage" class="main-content">
+
+    <aside class="main-sidebar">
+        <div class="content">
+            <span class="new-btn new-Mail hovBarra" onclick="MostrarMail()">Crear correo</span>
+            <div id="navigationTreeView" data-role="treeview" class="k-widget k-treeview" tabindex="0" role="tree" aria-activedescendant="navigationTreeView_tv_active">
+                <ul class="k-group k-treeview-lines">
+                    <li role="treeitem" class="k-item">
+                        <div class="k-top hovBarra" onclick="MostrarRecibidos()">
+                            <span class="mailSections">
+                                <span class="folder-name manoCursor">Bandeja de entrada</span>
+                            </span>
+                        </div>
+                    </li>
+                    <li role="treeitem" class="k-item">
+                        <div class="k-mid hovBarra">
+                            <span class="mailSections">
+                                <span class="folder-name manoCursor">Borrados</span>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <section class="main-section">
+        <div class="toolbar">
+            <div class="left">
+                <span class="searchbox">
+                    <input type="text" class="k-input search-textbox" placeholder="Buscar ...">
+                </span>
+            </div>
+            <div class="right">
+                <ul class="k-widget k-reset k-header k-menu k-menu-horizontal" style="display: none;" id="newMailButtons" data-role="menu" tabindex="0" role="menubar">
+                    <li class="k-item k-menu-item k-first" aria-haspopup="true" role="menuitem">
+                        <span class="k-link k-menu-link">Enviar</span>
+                    </li>
+                    <li class="k-item k-menu-item" id="Deleted" role="menuitem">
+                        <span class="k-link k-menu-link">Cancelar</span>
+                    </li>
+                </ul>
+
+                <ul class="k-widget k-reset k-header k-menu k-menu-horizontal" id="mailMenu" data-role="menu" tabindex="0" role="menubar">
+                    <li class="k-item k-menu-item k-first" aria-haspopup="true" role="menuitem">
+                        <span class="k-link k-menu-link">Responder</span>
+                    </li>
+                    <li class="k-item k-menu-item" id="read" operation="read" role="menuitem">
+                        <span class="k-link k-menu-link mailOptions">Marcar como leído</span>
+                    </li>
+                    <li class="k-item k-menu-item" id="Deleted" operation="moveDelete" role="menuitem">
+                        <span class="k-link k-menu-link">Borrar</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+
+        <div class="padre">
+            <div class="list-view">
+                <div class="contacts-list k-widget k-listview k-listview-bordered k-selectable k-scrollable" id="mainWidget" data-role="listview" role="listbox">
+
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="hidden-email correo" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Ana Rodriguez</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="hidden-email correo" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Ana Rodriguez</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Ana Rodriguez</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Maria Fernandez</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Ana Rodriguez</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Jaime Gonzalez</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Ana Rodriguez</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Juana de arco</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-view k-widget" role="option" aria-selected="true">
+                        <div class="header">
+                            <span class="email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Juan Caspe</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Julio Silvestre</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Luisa Esposito</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-view k-widget" role="option" aria-selected="false">
+                        <div class="header">
+                            <span class="hidden-email" style="display:none">Zbyszek.Piestrzeniewicz@telerik.com</span>
+                            <span class="image-wrapper">
+                                <i class="fas fa-portrait icoUser"></i>
+                            </span>
+                            <span class="name">Soraya Manriquez de Sousa</span>
+                            <div class="buttons">
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope-open-text" class="svg-inline--fa fa-envelope-open-text fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z" /></svg>
+                                </div>
+                                <div class="option manoCursor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="hijoPrincipal">
+                <div class="k-widget k-grid k-grid-display-flex " id="mainWidget" data-role="grid">
+                    <div class="k-grid-header" style="padding-right: 17px;">
+                        <div class="k-grid-header-wrap k-auto-scrollable">
+                            <table role="grid">
+                                <colgroup>
+                                    <col style="width:60px">
+                                    <col>
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                <thead role="rowgroup">
+                                    <tr role="row">
+                                        <th class="k-header" data-field="ID" data-index="0" data-title="" id="a521f732-de17-450b-bafa-5a92d62e8270" scope="col" style="touch-action: none;">
+                                            <input type="checkbox" class="master-checkbox">
+                                        </th>
+                                        <th class="k-header" data-field="From" data-index="1" data-title="From" id="7c565a95-cd52-4a84-a254-448a14610190" scope="col" data-role="columnsorter" style="touch-action: none;">
+                                            De:
+                                        </th>
+                                        <th class="k-header" data-field="Subject" data-index="2" data-title="Subject" id="5885bdc2-c597-40a4-acc4-6c2e5690e7d3" scope="col" data-role="columnsorter" style="touch-action: none;">
+                                            Asunto:
+                                        </th>
+                                        <th class="k-header" data-field="Date" data-index="4" data-title="Date" id="bdcaf0e5-ba4c-42d8-bf87-d53c5aad0b8c" scope="col" data-role="columnsorter" style="touch-action: none;">
+                                            Fecha:
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="k-grid-content k-auto-scrollable">
+                        <table role="grid" data-role="selectable" class="k-selectable" aria-multiselectable="true">
+                            <colgroup>
+                                <col style="width:60px">
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <tbody id="hovRecibidos" class="manoCursor" role="rowgroup">
+                                <tr class="k-master-row" data-uid="qc78f0a9-8adc-4e20-9065-3a55415cc3df" role="row">
+                                    <td class="" role="gridcell">
+                                        <input type="checkbox" class="chkbx">
+                                    </td>
+                                    <td class="" role="gridcell">Maria Anders</td>
+                                    <td class="" role="gridcell">Keep RadcloudUpload list  synced with Azure backend</td>
+                                    <td style="display:none" class="" role="gridcell">
+                                        <p>Maria Anders</p>
+                                        <p>Keep RadcloudUpload list  synced with Azure backend</p>
+                                    </td>
+                                    <td class="date" role="gridcell">8/8/2015 9:39 PM</td>
+                                </tr>
+                                <tr class="k-alt k-master-row" data-uid="f774d6f7-131b-4f3e-b1ba-8ce2f20b0160" role="row">
+                                    <td class="" role="gridcell">
+                                        <input type="checkbox" class="chkbx">
+                                    </td>
+                                    <td class="" role="gridcell">Pedro Afonso</td>
+                                    <td class="" role="gridcell">RE: RE: IE Freeze after iisreset</td>
+                                    <td style="display:none" class="" role="gridcell">
+                                        <p>Pedro Afonso</p>
+                                        <p>RE: RE: IE Freeze after iisreset</p>
+                                    </td>
+                                    <td class="date" role="gridcell">7/6/2015 6:18 AM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="hijoCorreoNuevo" style="display: none;">
+
+                <div class="inner-section">
+                    <label class="form-label" for="to-textbox" id="to-textbox_label">
+                        Para: &ensp; &ensp;&ensp;
+                        <input type="text" style="width:92%" name="to-textbox" value="" required>
+                    </label>
+                    <label class="form-label" for="subject-textbox">
+                        Asunto: &ensp;
+                        <input type="text" style="width:92%" name="subject-textbox" value="">
+                    </label>
+
+                    <div class="attachements-line">
+                        <label class="form-label" for="files">Archivos:</label>
+                        <div class="k-widget k-upload k-upload-async k-upload-empty">
+                            <div class="k-dropzone">
+                                <div class="k-button k-upload-button" aria-label="Add files ...">
+                                    <input id="files" name="files" type="file" data-role="upload" multiple="multiple" autocomplete="off">
+                                    <span>Añadir archivo ...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table cellspacing="0" cellpadding="0" class="k-widget k-editor k-editor-widget" role="presentation" style="height: 100%;">
+                        <tbody>
+                            <tr role="presentation">
+                                <td class="k-editor-toolbar-wrap" role="presentation">
+                                    <ul class="k-toolbar k-editor-toolbar" role="toolbar" aria-controls="newMail" data-role="editortoolbar">
+                                        <li class="k-tool-group" role="presentation">
+                                            <span class="k-editor-dropdown k-group-start k-group-end">
+                                                <span title="Format" class="k-widget k-dropdown k-editor-widget" unselectable="on" role="listbox" aria-haspopup="listbox" aria-expanded="false" tabindex="0" aria-owns="d916d0ba-d0e1-4fa6-a21f-4722ea6bef9f_listbox" aria-label="Format" aria-live="polite" aria-disabled="false" aria-readonly="false" aria-busy="false" style="width: 110px;" aria-activedescendant="g03f6146-134f-4e33-a195-172f1649c3c8">
+                                                    <span unselectable="on" class="k-dropdown-wrap k-state-default">
+                                                        <span id="g03f6146-134f-4e33-a195-172f1649c3c8" unselectable="on" role="option" aria-selected="true" class="k-input">Format</span>
+                                                        <span unselectable="on" class="k-select" aria-label="select">
+                                                            <span class="k-icon k-i-arrow-60-down" unselectable="on"></span>
+                                                        </span>
+                                                    </span>
+                                                    <select title="Format" aria-label="Format" class="k-formatting k-decorated" data-role="selectbox" style="width: 110px; display: none;" unselectable="on">
+                                                        <option value="p">Paragraph</option>
+                                                        <option value="blockquote">Quotation</option>
+                                                        <option value="h1">Heading 1</option>
+                                                        <option value="h2">Heading 2</option>
+                                                        <option value="h3">Heading 3</option>
+                                                        <option value="h4">Heading 4</option>
+                                                        <option value="h5">Heading 5</option>
+                                                        <option value="h6">Heading 6</option>
+                                                    </select>
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="k-tool-group k-button-group" role="presentation"><button tabindex="0" role="button" class="k-button k-tool k-group-start" title="Bold" aria-label="Bold" unselectable="on" aria-pressed="false"><span class="k-icon k-i-bold"></span><span class="k-tool-text k-button-text">Bold</span></button><button tabindex="0" role="button" class="k-button k-tool" title="Italic" aria-label="Italic" unselectable="on" aria-pressed="false"><span class="k-icon k-i-italic"></span><span class="k-tool-text k-button-text">Italic</span></button><button tabindex="0" role="button" class="k-button k-tool k-group-end" title="Underline" aria-label="Underline" unselectable="on" aria-pressed="false"><span class="k-icon k-i-underline"></span><span class="k-tool-text k-button-text">Underline</span></button></li>
+                                        <li class="k-tool-group k-button-group" role="presentation"><button tabindex="0" role="button" class="k-button k-tool k-group-start" title="Align text left" aria-label="Align text left" unselectable="on" aria-pressed="false"><span class="k-icon k-i-align-left"></span><span class="k-tool-text k-button-text">Justify Left</span></button><button tabindex="0" role="button" class="k-button k-tool" title="Center text" aria-label="Center text" unselectable="on" aria-pressed="false"><span class="k-icon k-i-align-center"></span><span class="k-tool-text k-button-text">Justify Center</span></button><button tabindex="0" role="button" class="k-button k-tool k-group-end" title="Align text right" aria-label="Align text right" unselectable="on" aria-pressed="false"><span class="k-icon k-i-align-right"></span><span class="k-tool-text k-button-text">Justify Right</span></button></li>
+                                        <li class="k-tool-group k-button-group" role="presentation"><button tabindex="0" role="button" class="k-button k-tool k-group-start" title="Copy format" aria-label="Copy format" unselectable="on"><span class="k-icon k-i-copy-format"></span><span class="k-tool-text k-button-text">Copy format</span></button><button tabindex="0" role="button" class="k-button k-tool k-group-end" title="Apply format" aria-label="Apply format" unselectable="on"><span class="k-icon k-i-apply-format"></span><span class="k-tool-text k-button-text">Apply format</span></button></li>
+                                        <li class="k-tool-group k-button-group" role="presentation"><button tabindex="0" role="button" class="k-button k-tool k-group-start" title="Insert unordered list" aria-label="Insert unordered list" unselectable="on" aria-pressed="false"><span class="k-icon k-i-list-unordered"></span><span class="k-tool-text k-button-text">Insert unordered list</span></button><button tabindex="0" role="button" class="k-button k-tool" title="Insert ordered list" aria-label="Insert ordered list" unselectable="on" aria-pressed="false"><span class="k-icon k-i-list-ordered"></span><span class="k-tool-text k-button-text">Insert ordered list</span></button><button tabindex="0" role="button" class="k-button k-tool" title="Indent" aria-label="Indent" unselectable="on"><span class="k-icon k-i-indent-increase"></span><span class="k-tool-text k-button-text">Indent</span></button><button tabindex="0" role="button" class="k-button k-tool k-state-disabled k-group-end" title="Outdent" aria-label="Outdent" unselectable="on"><span class="k-icon k-i-indent-decrease"></span><span class="k-tool-text k-button-text">Outdent</span></button></li>
+                                        <li class="k-tool-group k-button-group" role="presentation">
+                                            <button tabindex="0" role="button" class="k-button k-tool k-group-start" title="Insert hyperlink" aria-label="Insert hyperlink" unselectable="on"><span class="k-icon k-i-link-horizontal"></span><span class="k-tool-text k-button-text">Create Link</span></button><button tabindex="0" role="button" class="k-button k-tool k-state-disabled" title="Remove hyperlink" aria-label="Remove hyperlink" unselectable="on"><span class="k-icon k-i-unlink-horizontal"></span><span class="k-tool-text k-button-text">Remove Link</span></button><button tabindex="0" role="button" class="k-button k-tool k-group-end" title="Insert image" aria-label="Insert image" unselectable="on">
+                                                <span class="k-icon k-i-image"></span>
+                                                <span class="k-tool-text k-button-text">Insert Image</span>
+                                            </button>
+                                        </li>
+                                        <li class="k-tool-group k-button-group k-hidden k-state-disabled" role="presentation">
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled k-group-start k-group-end" title="Table Wizard" aria-label="Table Wizard" unselectable="on" disabled="disabled">
+                                                <span class="k-icon k-i-table-properties"></span>
+                                                <span class="k-tool-text k-button-text">Table Wizard</span>
+                                            </button>
+                                        </li>
+                                        <li class="k-tool-group k-button-group" role="presentation">
+                                            <button tabindex="0" role="button" class="k-button k-tool k-group-start k-group-end" data-popup="" title="Create a table" aria-label="Create a table" unselectable="on">
+                                                <span class="k-icon k-i-table-insert"></span>
+                                                <span class="k-tool-text k-button-text">Create table</span>
+                                            </button>
+                                        </li>
+                                        <li class="k-tool-group k-button-group k-hidden k-state-disabled" role="presentation">
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled k-group-start" title="Add column on the left" aria-label="Add column on the left" unselectable="on" disabled="disabled">
+                                                <span class="k-icon k-i-table-column-insert-left"></span>
+                                                <span class="k-tool-text k-button-text">Add column on the left</span>
+                                            </button>
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled" title="Add column on the right" aria-label="Add column on the right" unselectable="on" disabled="disabled">
+                                                <span class="k-icon k-i-table-column-insert-right"></span>
+                                                <span class="k-tool-text k-button-text">Add column on the right</span>
+                                            </button>
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled" title="Add row above" aria-label="Add row above" unselectable="on" disabled="disabled">
+                                                <span class="k-icon k-i-table-row-insert-above"></span>
+                                                <span class="k-tool-text k-button-text">Add row above</span>
+                                            </button>
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled" title="Add row below" aria-label="Add row below" unselectable="on" disabled="disabled">
+                                                <span class="k-icon k-i-table-row-insert-below"></span>
+                                                <span class="k-tool-text k-button-text">Add row below</span>
+                                            </button>
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled" title="Delete row" aria-label="Delete row" unselectable="on" disabled="disabled">
+                                                <span class="k-icon k-i-table-row-delete"></span>
+                                                <span class="k-tool-text k-button-text">Delete row</span>
+                                            </button>
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled k-group-end" title="Delete column" aria-label="Delete column" unselectable="on" disabled="disabled">
+                                                <span class="k-icon k-i-table-column-delete"></span>
+                                                <span class="k-tool-text k-button-text">Delete column</span>
+                                            </button>
+                                        </li>
+                                        <li class="k-tool-group k-button-group k-hidden k-state-disabled" role="presentation">
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled k-group-start" title="Merge cells horizontally" aria-label="Merge cells horizontally" unselectable="on" disabled="disabled">
+                                                <span class="k-icon k-i-cells-merge-horizontally"></span>
+                                                <span class="k-tool-text k-button-text">Merge Cell Right</span>
+                                            </button>
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled" title="Merge cells vertically" aria-label="Merge cells vertically" unselectable="on" disabled="disabled">
+                                                <span class="k-icon k-i-cells-merge-vertically"></span>
+                                                <span class="k-tool-text k-button-text">Merge Cell Down</span>
+                                            </button>
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled" title="Split cells horizontally" aria-label="Split cells horizontally" unselectable="on" disabled="disabled">
+                                                <span class="k-icon k-i-cell-split-horizontally"></span>
+                                                <span class="k-tool-text k-button-text">Split Cell</span>
+                                            </button>
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled k-group-end" title="Split cells vertically" aria-label="Split cells vertically" unselectable="on" disabled="disabled">
+                                                <span class="k-icon k-i-cell-split-vertically"></span>
+                                                <span class="k-tool-text k-button-text">Split Cell</span>
+                                            </button>
+                                        </li>
+                                        <li class="k-tool-group k-button-group k-hidden k-state-disabled" role="presentation">
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled k-group-start" title="Table Align Left" aria-label="Table Align Left" unselectable="on" disabled="disabled" aria-pressed="false">
+                                                <span class="k-icon k-i-table-position-left"></span>
+                                                <span class="k-tool-text k-button-text">Table Align Left</span>
+                                            </button>
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled" title="Table Align Center" aria-label="Table Align Center" unselectable="on" disabled="disabled" aria-pressed="false">
+                                                <span class="k-icon k-i-table-position-center"></span>
+                                                <span class="k-tool-text k-button-text">Table Align Center</span>
+                                            </button>
+                                            <button tabindex="0" role="button" class="k-button k-tool k-state-disabled k-group-end" title="Table Align Right" aria-label="Table Align Right" unselectable="on" disabled="disabled" aria-pressed="false">
+                                                <span class="k-icon k-i-table-position-right"></span>
+                                                <span class="k-tool-text k-button-text">Table Align Left</span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="k-editable-area">
+                                    <iframe title="Editable area. Press F10 for toolbar." frameborder="0" class="k-content" tabindex="0" src=""></iframe>
+                                    <textarea cols="20" id="newMail" name="newMail" rows="5" style="height: 500px; display: none;" data-role="editor" autocomplete="off" class="k-content k-raw-content"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <script>
+                        kendo.syncReady(function () { jQuery("#newMail").kendoEditor({ "tools": [{ "name": "formatting" }, { "name": "bold" }, { "name": "italic" }, { "name": "underline" }, { "name": "justifyLeft" }, { "name": "justifyCenter" }, { "name": "justifyRight" }, { "name": "copyFormat" }, { "name": "applyFormat" }, { "name": "insertUnorderedList" }, { "name": "insertOrderedList" }, { "name": "indent" }, { "name": "outdent" }, { "name": "createLink" }, { "name": "unlink" }, { "name": "insertImage" }, { "name": "tableWizard" }, { "name": "createTable" }, { "name": "addColumnLeft" }, { "name": "addColumnRight" }, { "name": "addRowAbove" }, { "name": "addRowBelow" }, { "name": "deleteRow" }, { "name": "deleteColumn" }, { "name": "mergeCellsHorizontally" }, { "name": "mergeCellsVertically" }, { "name": "splitCellHorizontally" }, { "name": "splitCellVertically" }, { "name": "tableAlignLeft" }, { "name": "tableAlignCenter" }, { "name": "tableAlignRight" }] }); });
+                    </script>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+</content>
+
+@section Scripts{
+    <script src="~/js/paginaMails.js"></script>
+
 }
+

@@ -1,0 +1,495 @@
+﻿
+/* IAGO - VIKSEN - JOAN */
+
+#MailPage{
+    padding-top: 2em;
+    padding-right: 1em;
+}
+.padre{
+    display:inline-flex;
+}
+.icoUser{
+    font-size: 35px;
+    color:rgb(72, 90, 128)
+}
+.buttons{
+margin-left: 1em;
+}
+.option{
+font-size: 20px;
+    color: rgb(46, 145, 226);
+}
+.contacts-list{
+    margin-bottom: 5px;
+}
+#hijoPrincipal{
+    padding-right: 2%;
+    padding-left: 2%;
+}
+#hijoCorreoNuevo{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#newMailButtons{
+    border: none;
+}
+#mailMenu{
+    border: none;
+}
+#hovRecibidos tr:hover{
+    background-color: rgb(54, 153, 247);
+}
+.manoCursor:hover{
+    cursor: pointer;
+}
+.hovBarra:hover{
+    background-color: rgb(142, 195, 238);
+}
+.mailSections{
+    padding: 15px;
+    margin-right: 50px;
+}
+.mailOptions {
+    color: rgb(142, 195, 238);
+}
+.toolbar{
+    margin-bottom:1em;
+}
+.searchbox{
+    margin-left: 1.5em;
+}
+
+/* FIN NOSOTROS */
+
+
+
+
+
+
+
+
+
+
+
+
+/* CONTACTS */
+
+.header {
+  display:flex; }
+  .header .name {
+    white-space: nowrap;
+
+    text-overflow: ellipsis; }
+  .header:after {
+    content: "";
+    display: block;
+    clear: both; }
+
+/* List view - default */
+.list-view {
+  flex-direction: row; 
+  margin-left: 1em;
+}
+  .list-view .list-view-inner {
+     
+    flex: 1;
+    overflow: auto;
+    border-right: 1px solid #ebebeb;
+    display: flex;
+    flex-direction: column;
+    overflow:auto; }
+    .list-view .list-view-inner .contacts-list {
+      overflow: hidden;
+      overflow-y: auto;
+      flex: 1; }
+    .list-view .list-view-inner .contact-view {
+        line-height: 50px;
+        font-size: 15px;
+        border-width: 0 0 1px;
+        border-color: #ebebeb;
+    }
+      .list-view .list-view-inner .contact-view.k-state-selected {
+        color: #000; }
+        .list-view .list-view-inner .contact-view.k-state-selected:before {
+          content: "";
+          display: block; }
+    .list-view .list-view-inner .details {
+      display: none; }
+    .list-view .contacts-list .image-wrapper {
+        margin-left: 1em;
+        width: 10%;
+        height: 50px;
+        margin-right: 5px;
+    }
+  .list-view .contacts-list .edit-buttons {
+    right: 15px;
+    top: 0; }
+  .list-view .single-contact-details {
+    padding: 17px 15px;
+    flex: 2;
+    border: 0; }
+    .list-view .single-contact-details .contact-view {
+      border: 0;
+      cursor: default;
+      color: #000; }
+ 
+    .list-view .single-contact-details .header {
+      margin-bottom: 15px;
+      padding: 15px;
+      background: #fafafa; }
+      .list-view .single-contact-details .header .edit-buttons {
+        display: block;
+        left: 105px;
+        top: 60px; }
+      .list-view .single-contact-details .header .name {
+        font: 100 30px 'Segoe UI'; }
+
+/* Card view */
+.card-view .list-view-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-view .single-contact-details {
+  display: none; }
+
+.card-view .contacts-list {
+  border-color: #ebebeb;
+  overflow: hidden;
+  overflow-y: auto;
+  flex: 1; }
+
+.card-view .contact-view {
+  float: left;
+  width: 33.33333333%;
+  padding: 15px;
+  box-sizing: border-box;
+  border-width: 0 0 1px 1px; }
+  .card-view .contact-view.k-state-selected, .card-view .contact-view:hover {
+    color: #000; }
+  .card-view .contact-view:last-child {
+    border-right: 1px solid #ebebeb; }
+
+.card-view .header .name {
+  max-width: calc(100% - 88px);
+  display: inline-block;
+  padding-top: 7px;
+  font-weight: 100;
+  font-size: 18px; }
+
+.card-view .header .edit-buttons {
+  display: block;
+  top: 50px;
+  left: 100px; }
+
+.card-view .details {
+  display: block; }
+
+.k-listview {
+  position: static; }
+
+.contact-edit-view {
+  padding: 15px 15px 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border: 0;
+  z-index: 9;
+  overflow: auto; }
+
+  .contact-edit-view .k-dropdown,
+  .contact-edit-view .k-textbox {
+    width: 400px; }
+  .contact-edit-view .forms-panel {
+    width: 400px; }
+  .contact-edit-view .forms-panel,
+  .contact-edit-view .upload-wrapper {
+    float: left; }
+
+
+
+/* FIN CONTACTOS */
+
+
+/* MAIL */
+
+@font-face{
+    font-family:'WebComponentsIcons';
+    src:url("../fonts/WebComponentsIcons/WebComponentsIcons.woff") format("woff"),url("../fonts/WebComponentsIcons/WebComponentsIcons.ttf") format("truetype"),url("../fonts/WebComponentsIcons/WebComponentsIcons.svg#svgFontName") format("svg")
+}
+@font-face{
+    font-family:"Noto Sans";
+    font-style:normal;
+    font-weight:400;
+    src:local("Noto Sans"),local("NotoSans"),url("../fonts/noto/notosans-regular.ttf")
+}
+@font-face{
+    font-family:"Noto Sans";
+    font-style:normal;
+    font-weight:700;
+    src:local("Noto Sans Bold"),local("NotoSans-Bold"),url("../fonts/noto/notosans-bold.ttf")
+}
+@font-face{
+    font-family:"Noto Sans";
+    font-style:italic;
+    font-weight:400;
+    src:local("Noto Sans Italic"),local("NotoSans-Italic"),url("../fonts/noto/notosans-italic.ttf")
+}
+@font-face{
+    font-family:"Noto Sans";
+    font-style:italic;
+    font-weight:700;
+    src:local("Noto Sans Bold Italic"),local("NotoSans-BoldItalic"),url("../fonts/noto/notosans-bolditalic.ttf")
+}
+html,body{
+    height:100%;
+    box-sizing:border-box
+}
+body{
+    display:flex;
+    flex-direction:column;
+
+    font:14px/1.42857143 "Noto Sans",Segoe UI,'Roboto',Myriad Pro,sans-serif;
+    color:#787878;
+    overflow:visible
+}
+input{ font:inherit }
+ul{
+    list-style-type:none;
+    margin:0;
+    padding:0
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin:0;
+    font-weight:normal
+}
+p{ margin:0 }
+.k-tooltip-button{ display:none }
+body>div:last-child{ flex:none }
+.image-wrapper{ overflow:hidden }
+
+.k-item{ border:0 }
+
+.k-widget.k-tooltip{
+    font-size:12px;
+    top:0
+}
+.k-widget.k-tooltip .k-tooltip-content{
+    padding-right:0;
+    padding:0 30px
+}
+.k-widget.k-tooltip .image-wrapper{
+    width:100px;
+    height:100px;
+    margin:25px auto 10px;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid rgba(0,0,0,.15)
+}
+.k-widget.k-tooltip .image-wrapper img{
+    width:102%;
+    margin-top:-5%
+}
+.k-widget.k-tooltip .k-callout-n{
+    top:-9px;
+    border-bottom-color:#fff;
+    border-width:0 9px 9px 9px;
+    margin-left:-8px
+}
+.k-widget.k-tooltip .name{
+    font-size:15px;
+    margin:5px
+}
+.k-widget.k-tooltip #signInButton{
+    margin:40px 0;
+    padding:5px 30px;
+    white-space:nowrap;
+    font-size:14px;
+    background:#1e8edf;
+    border-color:#1e8edf
+}
+.main-content{
+    display:flex;
+    overflow:auto;
+    
+}
+.main-section{
+    flex:1;
+    position:relative;
+    background:#fff;
+    box-shadow:0 0 4px 2px rgba(0,0,0,.06);
+}
+.main-section .toolbar{ border-bottom:1px solid #ebebeb }
+.main-section .toolbar .left{ float:left }
+.main-section .toolbar .right{ float:right }
+.main-section .toolbar .btn{ 
+    display:flex;
+    padding:.71em 16px;
+    line-height:1.42857;
+    height:1.42857em;
+    text-align:center;
+    cursor:pointer
+}
+.main-section .toolbar .btn.iconOnly{
+    width:1.42857em;
+    padding:.71em
+}
+.main-section .toolbar .btn.iconOnly:before{
+    font:15px WebComponentsIcons;
+    display:inline-block
+}
+.main-section .toolbar .btn.iconOnly.selected{ color:#1e8edf }
+.main-section .toolbar .btn.btn-cards:before{ content:"" }
+.main-section .toolbar .btn.btn-vertical-pane:before{ 
+    content:"";
+    transform:rotate(180deg)
+}
+.main-section .toolbar .btn.btn-horizontal-pane:before{
+    content:"";
+    transform:rotate(180deg)
+}
+.main-section .toolbar .btn:hover{ background:#ebebeb }
+.main-section .toolbar .btn:not(.iconOnly):active{
+    color:#fff;
+    background:#1e8edf
+}
+.main-section .toolbar:after{
+    content:"";
+    display:block;
+    clear:both
+}
+.inner-section{
+    display:flex;
+    flex-direction:column;
+    overflow:auto
+}
+.searchbox{
+    display:flex;
+    margin-top: 4px;
+    width:100%;
+}
+.searchbox:after{
+    content:"";
+    display:block;
+    margin-left: 5px;
+    margin-top: 5px;
+    font:20px WebComponentsIcons;
+}
+
+
+.main-sidebar .content{ flex:1 }
+.main-sidebar .new-btn{ 
+    display:flex;
+    padding:13px 16px;
+    font-size:16px;
+    color:#0072c6;
+    cursor:pointer;
+    align-items:center
+}
+.main-sidebar .new-btn:before{
+    display:inline-block;
+    content:"";
+    margin:0 5px 0 0;
+    font:24px "WebComponentsIcons";
+    vertical-align:middle
+}
+.main-sidebar .k-treeview .k-item{ padding:0 }
+.main-sidebar .k-treeview .k-in{
+    display:block;
+    margin:0;
+    padding:10px 15px
+}
+.main-sidebar .k-treeview .k-in:after{
+    content:"";
+    display:block;
+    clear:both
+}
+.main-sidebar .k-treeview .folder-name{ float:left }
+.main-sidebar .k-treeview .number{ float:right }
+.main-sidebar .footer{
+    padding:15px;
+    font-size:10px;
+    color:#b7b7b7
+}
+.main-sidebar .footer .links{
+    color:#1e8edf;
+    font-size:13px;
+    line-height:26px;
+    margin-bottom:10px;
+    cursor:pointer
+}
+.main-sidebar .footer .links p{ margin-bottom:5px }
+.main-sidebar .footer>p{ margin-top:10px }
+html .k-primary,html .k-state-selected,html .k-list .k-state-selected{
+    color:#fff;
+    border-color:#1e8edf;
+    background:#1e8edf
+}
+html .k-state-active,html .k-state-active:hover{ border-color:#1e8edf }
+html .k-state-hover,html .k-state-hover:hover{
+    color:inherit;
+    border-color:#e6e6e6;
+    background:#e6e6e6;
+    box-shadow:none
+}
+html .k-state-hover.k-item>.k-link,html .k-state-hover:hover.k-item>.k-link{
+    color:inherit;
+    background:#e6e6e6
+}
+html .k-textbox:hover,html .k-textbox:focus{ border-color:#1e8edf }
+html .k-state-focused,html .k-state-selected.k-state-focused{box-shadow:none}
+html .k-list>.k-state-focused{box-shadow:0 0 0 1px #1e8edf inset}
+html .k-icon,html .k-icon:hover{color:inherit}
+html .k-checkbox-label:hover:before,html .k-checkbox:checked+.k-checkbox-label:hover:before,html .k-checkbox:focus+.k-checkbox-label:before{border-color:#1e8edf}
+html .k-checkbox:checked+.k-checkbox-label:before{color:#1e8edf}
+.k-widget.k-tooltip{background:#fff;color:inherit}
+.k-scheduler .k-event-inverse{color:#fff}
+.k-scheduler .k-scheduler-toolbar .k-state-selected{
+    background:#1e8edf;
+    border-color:#1e8edf
+}
+.k-scheduler .k-scheduler-toolbar ul li.k-state-hover{
+    background:#4ba5e5;
+    border-color:#4ba5e5
+}
+.k-popup-edit-form.k-scheduler-edit-form .k-state-hover{
+    color:#fff;
+    background:#4ba5e5;
+    border-color:#4ba5e5
+}
+.k-popup-edit-form.k-scheduler-edit-form .k-dropdown-wrap.k-state-focused{
+    color:#fff;
+    border-color:#1e8edf;
+    background:#1e8edf
+}
+.k-popup-edit-form.k-scheduler-edit-form .k-numeric-wrap:not(.k-state-disabled) .k-icon:not(:hover),.k-popup-edit-form.k-scheduler-edit-form .k-datetimepicker .k-icon:not(:hover){color:#787878}
+.k-button:hover{
+    background:#4ba5e5;
+    border-color:#4ba5e5
+}
+.k-button:active,.k-button:active:hover,.k-button.k-state-focused{
+    background:#1e8edf;
+    border-color:#1e8edf
+}
+.k-button.k-state-focused,.k-button:focus:not(.k-state-disabled):not([disabled]){
+    color:#fff;
+    border-color:#1e8edf;
+    background:#1e8edf;
+    box-shadow:0 0 0 1px #1e8edf inset
+}
+.k-picker-wrap.k-state-focused,.k-picker-wrap.k-state-focused.k-state-hover{
+    color:#fff;
+    border-color:#1e8edf;
+    background:#1e8edf
+}
+
+.k-dropdown-wrap.k-state-focused{
+    background:#1e8edf;
+    border-color:#1e8edf
+}

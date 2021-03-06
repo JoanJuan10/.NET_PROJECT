@@ -3,24 +3,32 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-2">
-            <ul class="table-filter">
-            </ul>
+    <nav id="navSecundario" class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-around">
+        <i class="fa-bars fa"></i><a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Trabajadores</a>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <button class="btn btn-outline-primary btn-sm disabled" style="margin-right: 5px;">Grupo Castilla</button>
+            <button class="btn btn-outline-primary btn-sm disabled">@DateTime.Now</button>
         </div>
-        <div class="col-10">
-            <div id="trabajadoresGrid"></div>
-            <form class="form-inline d-none" id="fichaTrabajador" asp-area="" asp-controller="Paginas" asp-action="FichaTrabajador">
-                <button type="submit" class="nav-link btn btn-link text-dark d-none"></button>
-            </form>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <ul class="table-filter"></ul>
+            </div>
+            <div class="col-10">
+                <div id="trabajadoresGrid"></div>
+                <form class="form-inline d-none" id="fichaTrabajador" asp-area="" asp-controller="Paginas" asp-action="FichaTrabajador">
+                    <button type="submit" class="nav-link btn btn-link text-dark d-none"></button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-@section Scripts {
-    <script>
-        callToken();
-    </script>
-    
-}
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                callToken();
+            });
+        </script>
+    }
