@@ -19,7 +19,7 @@ Viksen Senkov - Front end Developer
 ###### Instalación
 ```
 IDE               Visual Studio 2019 Community Version
-Core              C# 
+Core              C#, HTML, CSS, JavaScript, AJAX, JQUERY
 Framework         NET Core 3.1
 DataBase          Microsoft Sql Server 
 ```
@@ -49,9 +49,10 @@ appsettings.json (FRONT END)
     "DefaultConnection": "Server=<IP>;Database=BootCampDB;User ID=<DB USER>;Password=<DB PASSWORD>"
 },
 ```
-* Substituir los valores entre <> por los suyos *
+* Sustituir los valores entre <> por los suyos *
 
-#### 4. URLs endpoints.
+#### 4. URL endpoints.
+* Todas las rutas requiren de un Token obtenido en la ultima ruta para poder acceder.
 ```
 Categorias
 GET       /api/Categorias
@@ -175,4 +176,4 @@ DELETE    /api/VTrabajadores/{id}
 Token
 POST      /api/Token
 ```
-* Todas las rutas requiren de un Token obtenido en la ultima ruta para poder acceder.
+
