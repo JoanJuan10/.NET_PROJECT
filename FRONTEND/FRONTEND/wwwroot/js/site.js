@@ -287,3 +287,20 @@ function getUnidadesOrganizativas(token) {
         }
     });
 }
+
+$(function () {
+    setInterval(function () {
+        var fecha = new Date();
+        var formato = (fecha.getDay() < 10) ? ("0" + fecha.getDay() + "/") : (fecha.getDay() + "/");
+        formato += (fecha.getMonth() < 10) ? "0" + (fecha.getMonth() + 1) + "/" : (fecha.getMonth() + "/");
+        formato += fecha.getFullYear() + " - ";
+
+        formato += (fecha.getHours() < 10) ? ("0" + fecha.getHours() + ":") : (fecha.getHours() + ":");
+        formato += (fecha.getMinutes() < 10) ? ("0" + fecha.getMinutes() + ":") : (fecha.getMinutes() + ":");
+        formato += (fecha.getSeconds() < 10) ? ("0" + fecha.getSeconds()) : (fecha.getSeconds());
+
+        $('#reloj').text(formato);
+
+    }, 1000);
+    
+});
