@@ -1,8 +1,9 @@
 ﻿
 /* IAGO - VIKSEN - JOAN */
-
+#navSecundario{
+    color:black;
+}
 #MailPage{
-    padding-top: 2em;
     padding-right: 1em;
 }
 .padre{
@@ -38,8 +39,18 @@ font-size: 20px;
     padding-left: 2%;
     padding-right: 2%;
 }
+#hijoBandejaBorrados {
+    padding-bottom: 1em;
+    padding-right: 2%;
+    padding-left: 2%;
+}
+#hijoMailBorrado {
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
 
-#newMailButtons{
+#newMailButtons {
     border: none;
 }
 #mailMenu{
@@ -50,7 +61,7 @@ font-size: 20px;
 }
 .recibidos{
     overflow:auto;
-    height: 715px;
+    height: 675px;
 }
 .manoCursor:hover{
     cursor: pointer;
@@ -73,7 +84,7 @@ font-size: 20px;
 /* MAIL LIST */
 .contacts-list {
     list-style-type: none;
-    height: 750px;
+    height: 710px;
     overflow: auto;
 }
 
@@ -109,20 +120,14 @@ div.option:hover{
     background-image: -webkit-linear-gradient(top, #212185 0%,#20b2aa 100%);
 }
 
-    /* FIN MAIL LIST*/
 
 
 /* FIN NOSOTROS */
 
 
 
-
-
-
-/* CONTACTS MAIL LIST*/
-
 .header {
-  display:flex; 
+    display: flex;
 }
   .header .name {
     white-space: nowrap;
@@ -132,7 +137,7 @@ div.option:hover{
     display: block;
     clear: both; }
 
-  /* CONTACTS MAIL LIST*/
+  /* FIN CONTACTS MAIL LIST*/
 
 /* MAIL */
 
@@ -295,92 +300,4 @@ body>div:last-child{ flex:none }
     display:block;
     margin:0;
     padding:10px 15px
-}
-.main-sidebar .k-treeview .k-in:after{
-    content:"";
-    display:block;
-    clear:both
-}
-.main-sidebar .k-treeview .folder-name{ float:left }
-.main-sidebar .k-treeview .number{ float:right }
-.main-sidebar .footer{
-    padding:15px;
-    font-size:10px;
-    color:#b7b7b7
-}
-.main-sidebar .footer .links{
-    color:#1e8edf;
-    font-size:13px;
-    line-height:26px;
-    margin-bottom:10px;
-    cursor:pointer
-}
-.main-sidebar .footer .links p{ margin-bottom:5px }
-.main-sidebar .footer>p{ margin-top:10px }
-html .k-primary,html .k-state-selected,html .k-list .k-state-selected{
-    color:#fff;
-    border-color:#1e8edf;
-    background:#1e8edf
-}
-html .k-state-active,html .k-state-active:hover{ border-color:#1e8edf }
-html .k-state-hover,html .k-state-hover:hover{
-    color:inherit;
-    border-color:#e6e6e6;
-    background:#e6e6e6;
-    box-shadow:none
-}
-html .k-state-hover.k-item>.k-link,html .k-state-hover:hover.k-item>.k-link{
-    color:inherit;
-    background:#e6e6e6
-}
-html .k-textbox:hover,html .k-textbox:focus{ border-color:#1e8edf }
-html .k-state-focused,html .k-state-selected.k-state-focused{box-shadow:none}
-html .k-list>.k-state-focused{box-shadow:0 0 0 1px #1e8edf inset}
-html .k-icon,html .k-icon:hover{color:inherit}
-html .k-checkbox-label:hover:before,html .k-checkbox:checked+.k-checkbox-label:hover:before,html .k-checkbox:focus+.k-checkbox-label:before{border-color:#1e8edf}
-html .k-checkbox:checked+.k-checkbox-label:before{color:#1e8edf}
-.k-widget.k-tooltip{background:#fff;color:inherit}
-.k-scheduler .k-event-inverse{color:#fff}
-.k-scheduler .k-scheduler-toolbar .k-state-selected{
-    background:#1e8edf;
-    border-color:#1e8edf
-}
-.k-scheduler .k-scheduler-toolbar ul li.k-state-hover{
-    background:#4ba5e5;
-    border-color:#4ba5e5
-}
-.k-popup-edit-form.k-scheduler-edit-form .k-state-hover{
-    color:#fff;
-    background:#4ba5e5;
-    border-color:#4ba5e5
-}
-.k-popup-edit-form.k-scheduler-edit-form .k-dropdown-wrap.k-state-focused{
-    color:#fff;
-    border-color:#1e8edf;
-    background:#1e8edf
-}
-.k-popup-edit-form.k-scheduler-edit-form .k-numeric-wrap:not(.k-state-disabled) .k-icon:not(:hover),.k-popup-edit-form.k-scheduler-edit-form .k-datetimepicker .k-icon:not(:hover){color:#787878}
-.k-button:hover{
-    background:#4ba5e5;
-    border-color:#4ba5e5
-}
-.k-button:active,.k-button:active:hover,.k-button.k-state-focused{
-    background:#1e8edf;
-    border-color:#1e8edf
-}
-.k-button.k-state-focused,.k-button:focus:not(.k-state-disabled):not([disabled]){
-    color:#fff;
-    border-color:#1e8edf;
-    background:#1e8edf;
-    box-shadow:0 0 0 1px #1e8edf inset
-}
-.k-picker-wrap.k-state-focused,.k-picker-wrap.k-state-focused.k-state-hover{
-    color:#fff;
-    border-color:#1e8edf;
-    background:#1e8edf
-}
-
-.k-dropdown-wrap.k-state-focused{
-    background:#1e8edf;
-    border-color:#1e8edf
 }
