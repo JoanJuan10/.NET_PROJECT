@@ -162,8 +162,8 @@ function getTrabajadores(token) {
                                                         },
                                                         pageSize: 17,
                                                         sort: {
-                                                            field: "nombre",
-                                                            dir: "desc"
+                                                            field: "id",
+                                                            dir: "asc"
                                                         }
                                                     });
 
@@ -283,6 +283,7 @@ function getUnidadesOrganizativas(token) {
                 var grid = $("#trabajadoresGrid").data("kendoGrid");
 
                 grid.dataSource.filter({ field: "nivel", operator: "eq", value: filter });
+
             });
         }
     });
